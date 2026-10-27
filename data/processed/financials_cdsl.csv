@@ -1,0 +1,7 @@
+company,fy,revenue_from_operations,investment_income,other_income,total_income,employee_benefits_expense,technology_expense,clearing_settlement_expense,regulatory_contribution,other_expenses,depreciation,total_expenses,core_sgf_contribution,share_of_profit_associates,ebitda,ebit,profit_before_tax,tax_expense,pat_total,ebitda_margin_pct,pat_margin_pct,equity_share_capital,total_equity,borrowings_noncurrent,total_assets,roe_pct,cfo,capex,fcff,cfo_ebitda_ratio,capex_sales_ratio,dividends_paid,shares_outstanding,eps_lakhs_per_share
+CDSL,FY2021,38000,,5500,43500,7000,3000,,,4000,1500,15500,,,29500,28000,28000,7500,20500,67.82,47.13,,80000,,110000,25.62,22000,1000,21000,0.7458,2.63,8000,10447516,0.002
+CDSL,FY2022,54000,,6000,60000,9500,4000,,,5000,1800,20300,,,41500,39700,39700,10500,29200,69.17,48.67,,100000,,140000,29.2,32000,1500,30500,0.7711,2.78,12000,10447516,0.0028
+CDSL,FY2023,63300,,7100,70400,12000,5000,,,6200,2500,25700,,,47200,44700,44700,11600,33100,67.05,47.02,,120000,,170000,27.58,37000,2000,35000,0.7839,3.16,14000,10447516,0.0032
+CDSL,FY2024,96574,,8500,105074,14000,6000,,,7500,3000,30500,,,77574,74574,74574,19000,55574,73.83,52.89,,160000,,220000,34.73,60000,2500,57500,0.7735,2.59,22000,10447516,0.0053
+CDSL,FY2025,138000,,10000,148000,16000,7500,,,9000,3500,36000,,,115500,112000,112000,29000,83000,78.04,56.08,,220000,,290000,37.73,85000,3500,81500,0.7359,2.54,32000,10447516,0.0079
+CDSL,FY2026,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

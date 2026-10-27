@@ -1,0 +1,23 @@
+# Core
+numpy
+pandas
+scipy
+openpyxl
+pyyaml
+xlsxwriter
+
+# PDF extraction
+pdfplumber
+pypdf
+
+# Reporting
+reportlab
+
+# Visualization
+matplotlib
+
+# Web dashboard
+streamlit
+
+# Testing
+pytest

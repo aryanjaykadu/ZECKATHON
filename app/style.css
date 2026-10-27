@@ -1,0 +1,748 @@
+:root {
+  --bg-dark: #07090e;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --bg-card-hover: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-hover: rgba(255, 255, 255, 0.28);
+  --glass-highlight: rgba(255, 255, 255, 0.25);
+  
+  /* Hero Color: Electric Cyan / Aqua Glow */
+  --hero-cyan: #00f2fe;
+  --hero-blue: #4facfe;
+  --hero-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  --hero-glow: rgba(0, 242, 254, 0.35);
+
+  --accent-purple: #7928ca;
+  --accent-pink: #ff0080;
+  
+  --text-main: #f5f7fb;
+  --text-muted: #8b949e;
+  --text-dim: #586069;
+  
+  --success-green: #00f2a9;
+  --warning-yellow: #ffd000;
+  --danger-red: #ff4d6d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+/* -------------------------------------------------------------
+   LIQUID GLASS BACKGROUND & BLOBS (Apple Inspired)
+------------------------------------------------------------- */
+.blob-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.liquid-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.6;
+  animation: liquidMotion 22s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+  will-change: transform;
+}
+
+.blob-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.45) 0%, rgba(79, 172, 254, 0.1) 70%);
+  top: -150px;
+  left: 15%;
+  animation-duration: 18s;
+}
+
+.blob-2 {
+  width: 750px;
+  height: 750px;
+  background: radial-gradient(circle, rgba(121, 40, 202, 0.4) 0%, rgba(255, 0, 128, 0.05) 70%);
+  bottom: -200px;
+  right: -100px;
+  animation-duration: 25s;
+  animation-delay: -5s;
+}
+
+.blob-3 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 242, 169, 0.25) 0%, rgba(0, 100, 200, 0.05) 70%);
+  top: 40%;
+  left: -150px;
+  animation-duration: 20s;
+  animation-delay: -10s;
+}
+
+@keyframes liquidMotion {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(120px, 80px) scale(1.15) rotate(45deg);
+  }
+  66% {
+    transform: translate(-90px, 140px) scale(0.9) rotate(90deg);
+  }
+  100% {
+    transform: translate(60px, -60px) scale(1.08) rotate(135deg);
+  }
+}
+
+/* Glass noise & optical depth */
+.glass-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cursor-glow {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.12) 0%, transparent 65%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+/* -------------------------------------------------------------
+   GLASSMORPHISM CORE COMPONENTS
+------------------------------------------------------------- */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 
+    0 10px 30px -10px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.4s ease, 
+              border-color 0.4s ease;
+}
+
+/* Liquid bouncy hover effect */
+.bouncy-hover:hover {
+  transform: translateY(-6px) scale(1.012);
+  border-color: var(--glass-border-hover);
+  box-shadow: 
+    0 20px 40px -15px var(--hero-glow),
+    0 0 0 1px rgba(0, 242, 254, 0.25),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.bouncy-hover:active {
+  transform: translateY(-2px) scale(0.99);
+  transition-duration: 0.15s;
+}
+
+/* -------------------------------------------------------------
+   NAVIGATION BAR (Glass Floating Pill)
+------------------------------------------------------------- */
+.glass-nav-wrapper {
+  position: sticky;
+  top: 18px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 0 24px;
+}
+
+.glass-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  padding: 10px 18px;
+  background: rgba(13, 17, 23, 0.65);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 40px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: var(--hero-gradient);
+  color: #07090e;
+  letter-spacing: 0.05em;
+}
+
+.brand-title {
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 6px;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 20px;
+  transition: all 0.25s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.glass-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 100px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--hero-gradient);
+  color: #07090e;
+  box-shadow: 0 4px 20px var(--hero-glow);
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glass-btn:hover {
+  transform: scale(1.05);
+}
+
+/* -------------------------------------------------------------
+   HERO SECTION
+------------------------------------------------------------- */
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--hero-cyan);
+  margin-bottom: 24px;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--hero-cyan);
+  box-shadow: 0 0 10px var(--hero-cyan);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -0.03em;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 20%, var(--hero-cyan) 80%, var(--hero-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin: 0 auto 40px;
+}
+
+/* -------------------------------------------------------------
+   HERO VERDICT CARD (Bento Glass)
+------------------------------------------------------------- */
+.hero-verdict-card {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 36px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(0, 242, 254, 0.04) 100%);
+  border: 1px solid rgba(0, 242, 254, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 242, 254, 0.15);
+}
+
+.verdict-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.verdict-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--hero-cyan);
+}
+
+.verdict-company {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-top: 4px;
+}
+
+.verdict-ticker {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.verdict-stat-pill {
+  text-align: right;
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  padding: 10px 20px;
+  border-radius: 18px;
+}
+
+.verdict-stat-pill .stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--hero-cyan);
+  line-height: 1;
+}
+
+.verdict-stat-pill .stat-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.verdict-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  text-align: left;
+}
+
+.verdict-metric .m-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.verdict-metric .m-value {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.hero-accent {
+  color: var(--hero-cyan) !important;
+}
+
+.highlight-green {
+  color: var(--success-green) !important;
+}
+
+.sub-weight {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.pass-badge {
+  font-size: 1rem !important;
+  color: var(--success-green) !important;
+}
+
+/* -------------------------------------------------------------
+   UNIVERSE CARDS GRID
+------------------------------------------------------------- */
+.section-block {
+  margin-bottom: 80px;
+}
+
+.section-header {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.section-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.company-card {
+  padding: 28px;
+}
+
+.company-card.active-border {
+  border-color: rgba(0, 242, 254, 0.45);
+  box-shadow: 0 10px 30px -5px rgba(0, 242, 254, 0.2);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+}
+
+.chip-winner {
+  background: rgba(0, 242, 254, 0.15);
+  color: var(--hero-cyan);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+}
+
+.card-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.co-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.co-role {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.metric-row:last-child {
+  border-bottom: none;
+}
+
+.metric-row span {
+  color: var(--text-muted);
+}
+
+/* -------------------------------------------------------------
+   TABLE (Liquidity & Sizing)
+------------------------------------------------------------- */
+.table-card {
+  padding: 24px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.glass-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.glass-table th {
+  padding: 14px 16px;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.glass-table td {
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.86rem;
+}
+
+.highlight-row {
+  background: rgba(0, 242, 254, 0.05);
+}
+
+.pill-weight {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 700;
+}
+
+.hero-pill {
+  background: var(--hero-gradient);
+  color: #07090e;
+}
+
+.status-pass {
+  color: var(--success-green);
+  font-weight: 700;
+}
+
+/* -------------------------------------------------------------
+   FORENSIC METRICS GRID
+------------------------------------------------------------- */
+.forensics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.metric-glass-box {
+  padding: 28px;
+}
+
+.box-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.box-score {
+  font-size: 2.8rem;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+  color: #fff;
+  line-height: 1.1;
+  margin: 8px 0;
+}
+
+.box-score .total {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+.box-title {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--hero-cyan);
+}
+
+.box-detail {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* -------------------------------------------------------------
+   TRIPWIRES LIST
+------------------------------------------------------------- */
+.tripwire-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tripwire-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  gap: 20px;
+}
+
+.tw-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.tw-badge.red { background: rgba(255, 77, 109, 0.15); color: var(--danger-red); border: 1px solid rgba(255, 77, 109, 0.3); }
+.tw-badge.yellow { background: rgba(255, 208, 0, 0.15); color: var(--warning-yellow); border: 1px solid rgba(255, 208, 0, 0.3); }
+.tw-badge.blue { background: rgba(0, 242, 254, 0.15); color: var(--hero-cyan); border: 1px solid rgba(0, 242, 254, 0.3); }
+
+.tw-content {
+  flex: 1;
+}
+
+.tw-content h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.tw-content p {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.tw-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.action-tag {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.status-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.status-chip.pass {
+  background: rgba(0, 242, 169, 0.12);
+  color: var(--success-green);
+}
+
+.status-chip.active-review {
+  background: rgba(0, 242, 254, 0.15);
+  color: var(--hero-cyan);
+}
+
+/* -------------------------------------------------------------
+   FOOTER
+------------------------------------------------------------- */
+.glass-footer {
+  border-top: 1px solid var(--glass-border);
+  padding: 40px 24px;
+  text-align: center;
+  background: rgba(7, 9, 14, 0.7);
+  backdrop-filter: blur(20px);
+}
+
+.footer-inner p {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.footer-inner .sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* -------------------------------------------------------------
+   RESPONSIVE DESIGN
+------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .glass-nav {
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 24px;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .verdict-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .tripwire-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tw-action {
+    align-items: flex-start;
+  }
+}

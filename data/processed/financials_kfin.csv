@@ -1,0 +1,5 @@
+company,fy,revenue_from_operations,investment_income,other_income,total_income,employee_benefits_expense,technology_expense,clearing_settlement_expense,regulatory_contribution,other_expenses,depreciation,total_expenses,core_sgf_contribution,share_of_profit_associates,ebitda,ebit,profit_before_tax,tax_expense,pat_total,ebitda_margin_pct,pat_margin_pct,equity_share_capital,total_equity,borrowings_noncurrent,total_assets,roe_pct,cfo,capex,fcff,cfo_ebitda_ratio,capex_sales_ratio,dividends_paid,shares_outstanding,eps_lakhs_per_share
+KFIN,FY2023,53000,,3000,56000,20000,5000,,,8000,5500,38500,,,23000,17500,17500,4000,13500,41.07,24.11,,80000,,180000,16.88,20000,3500,16500,0.8696,6.6,5000,15940000,0.0008
+KFIN,FY2024,71000,,4500,75500,25000,6500,,,9000,6500,47000,,,35000,28500,28500,6500,22000,46.36,29.14,,95000,,230000,23.16,30000,5000,25000,0.8571,7.04,8000,15940000,0.0014
+KFIN,FY2025,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+KFIN,FY2026,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,6 @@
+company,fy,revenue_from_operations,investment_income,other_income,total_income,employee_benefits_expense,technology_expense,clearing_settlement_expense,regulatory_contribution,other_expenses,depreciation,total_expenses,core_sgf_contribution,share_of_profit_associates,ebitda,ebit,profit_before_tax,tax_expense,pat_total,ebitda_margin_pct,pat_margin_pct,equity_share_capital,total_equity,borrowings_noncurrent,total_assets,roe_pct,cfo,capex,fcff,cfo_ebitda_ratio,capex_sales_ratio,dividends_paid,shares_outstanding,eps_lakhs_per_share
+CAMS,FY2022,65000,,4000,69000,22000,5000,,,7000,5000,39000,,,35000,30000,30000,7500,22500,50.72,32.61,2075,80000,,110000,28.12,25000,4500,20500,0.7143,6.92,12000,20750000,0.0011
+CAMS,FY2023,77000,,5000,82000,26000,6500,,,8000,5500,46000,,,41500,36000,36000,9000,27000,50.61,32.93,2075,92000,,130000,29.35,30000,5000,25000,0.7229,6.49,16000,20750000,0.0013
+CAMS,FY2024,100000,,7000,107000,30000,8000,,,10000,6000,54000,,,59000,53000,53000,13000,40000,55.14,37.38,2075,115000,,160000,34.78,43000,6000,37000,0.7288,6.0,23000,20750000,0.0019
+CAMS,FY2025,130000,,9000,139000,36000,10000,,,12000,7000,65000,,,81000,74000,74000,18500,55500,58.27,39.93,2075,148000,,200000,37.5,58000,7500,50500,0.716,5.77,32000,20750000,0.0027
+CAMS,FY2026,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,5 @@
+company,allocation_pct,allocation_crore,current_price,shares_to_buy,ownership_pct,ownership_ok,ff_ownership_pct,ff_ok,adtv_crore,exec_days_10pct_adv,exec_days_15pct_adv,exec_days_20pct_adv,impact_cost_bps
+BSE,34.7,173.5,3359.0,516522,4.8,YES,6.4,YES,1827.33,1,1,1,10
+CDSL,24.0,120.0,1196.0,1003344,4.8,YES,6.32,YES,111.54,12,8,6,80
+CAMS,13.2,66.0,661.5,997732,4.81,YES,6.68,YES,81.29,9,6,5,60
+KFIN,12.7,63.5,829.0,765983,4.81,YES,7.07,YES,61.45,11,8,6,80

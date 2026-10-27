@@ -1,0 +1,5 @@
+company,latest_fy,cfo_ebitda,fcf_pat,accruals_ratio,beneish_m_score,m_score_flag,capex_intensity_pct,related_party_note,auditor_note,composite_score
+BSE,FY2025,0.631,0.802,0.0111,-1.57,INVESTIGATE,4.1,ICCL (100% sub) clearing; India INX (sub); moderate RPT/revenue ~5%,Clean audit; Big-4 (Deloitte); no qualifications FY2025,75
+CDSL,FY2025,0.736,0.982,-0.0069,-1.77,INVESTIGATE,2.5,CVL KRA (sub); CCRL (sub); low RPT/revenue ~3%,Clean audit; Big-4 (Walker Chandiok / Grant Thornton); no qualifications,80
+CAMS,FY2025,0.716,0.91,-0.0125,-1.92,PASS,5.8,NSE Investments (37.5% shareholder) — potential conflict; low operational RPT,Clean audit; Big-4 (S.R. Batliboi / EY); no qualifications,100
+KFIN,FY2024,0.857,1.136,-0.0348,-2.02,PASS,7.0,General Atlantic (PE promoter) — standard arm's length; international subs ~20% rev,Clean audit; Big-4 (MSKA / BDO India); no qualifications,100

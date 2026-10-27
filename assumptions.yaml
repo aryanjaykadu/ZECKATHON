@@ -1,0 +1,143 @@
+# assumptions.yaml — All model assumptions with sources and rationale
+# Locked BEFORE looking at results (timestamp: 2026-10-27T21:00:00+05:30)
+
+cutoff_date: "2026-10-26"
+random_seed: 42
+mandate_inr_crore: 500
+
+# WACC components
+wacc:
+  risk_free_rate: 0.0695  # 10-yr G-sec yield ~6.95% as of Oct 2026 (RBI Table 178)
+  equity_risk_premium: 0.055  # Damodaran India ERP Jan 2026: 5.5% (source: pages.stern.nyu.edu)
+  terminal_growth: 0.05  # 5% nominal = ~2% real + ~3% long-term inflation. Below WACC.
+  terminal_growth_max: 0.06  # Guard: must be < WACC
+
+# Decision weights for robust pick (P7) — fixed BEFORE results
+pick_weights:
+  expected_return: 0.30
+  probability_of_loss: 0.20  # Lower is better
+  cvar_95: 0.20  # Less negative is better
+  fcf_yield_current: 0.15
+  forensic_score: 0.15  # Higher is better (0-100 scale)
+  timestamp_locked: "2026-10-27T21:00:00+05:30"
+  rationale: "Balanced between return, downside risk, cash generation quality, and accounting integrity."
+
+# Scenario assumptions
+scenarios:
+  bull:
+    label: "Strong structural growth"
+    equity_market_return: 0.15
+    aum_growth: 0.20
+    derivatives_turnover_growth: 0.15
+    demat_account_growth: 0.12
+    multiple_expansion: 0.10
+    rationale: "Continued retail participation boom, regulatory clarity post-F&O curbs, SIP inflows sustain, new products launch."
+    
+  base:
+    label: "Moderate growth with regulatory headwinds"
+    equity_market_return: 0.10
+    aum_growth: 0.14
+    derivatives_turnover_growth: -0.05  # Post-curb normalization
+    demat_account_growth: 0.08
+    multiple_expansion: 0.0
+    rationale: "F&O curbs reduce turnover ~5%, AUM grows on SIP momentum but slower, demat additions moderate as easy onboarding saturates."
+    
+  bear:
+    label: "Regulatory squeeze + market correction"
+    equity_market_return: -0.20  # 20% equity drawdown
+    aum_growth: -0.05
+    derivatives_turnover_growth: -0.30  # 30% fall in derivatives turnover
+    demat_account_growth: 0.03
+    multiple_expansion: -0.15
+    rationale: "Combined stress: SEBI tightens F&O eligibility + lot sizes further, equity market corrects 20%, AUM declines on redemptions, multiples contract on earnings downgrades."
+
+# Shock catalogue with probabilities
+shocks:
+  derivatives_turnover_30pct_fall:
+    probability: 0.25
+    impact_companies: [bse]
+    rationale: "SEBI already implemented weekly expiry ban (Nov 2024) and lot-size hike. Further tightening plausible. Base rate: 2 major regime changes in 2 years."
+    label_subjective: true
+    
+  equity_drawdown_20pct:
+    probability: 0.20
+    impact_companies: [bse, cdsl, cams, kfin]
+    rationale: "Historical: Nifty has had 3 drawdowns >20% in 15 years (~20% annualized probability)."
+    label_subjective: false
+    
+  fo_eligibility_tightening:
+    probability: 0.15
+    impact_companies: [bse]
+    rationale: "SEBI consultation paper on stock F&O eligibility (reducing universe). Past precedent: SEBI reduced index-only weekly to single expiry."
+    label_subjective: true
+    
+  fee_slab_changes:
+    probability: 0.10
+    impact_companies: [bse]
+    rationale: "True-to-label regime already flattened slabs. Further regulatory intervention on exchange charges possible but less likely."
+    label_subjective: true
+    
+  depository_fee_cap:
+    probability: 0.10
+    impact_companies: [cdsl]
+    rationale: "SEBI has not signaled depository fee regulation, but MII fee scrutiny is increasing."
+    label_subjective: true
+    
+  mf_ter_cut:
+    probability: 0.20
+    impact_companies: [cams, kfin]
+    rationale: "SEBI has cut TERs twice (2018, 2024). Another cut in the next 2 years is plausible. Directly impacts RTA basis-point yield."
+    label_subjective: true
+    
+  market_crash:
+    probability: 0.10
+    impact_companies: [bse, cdsl, cams, kfin]
+    rationale: "Severe correction (>30%). Historical base rate ~10% in any given year."
+    label_subjective: false
+    
+  demat_sip_tailwind:
+    probability: 0.40
+    impact_companies: [cdsl, cams, kfin]
+    rationale: "SIP AUM crossed Rs 13 lakh crore (Oct 2026). Structural tailwind from financialization of savings."
+    label_subjective: false
+
+# Correlation matrix for Monte Carlo (equity drives AUM, turnover, multiples)
+correlations:
+  equity_return_vs_aum_growth: 0.75
+  equity_return_vs_derivatives_growth: 0.60
+  equity_return_vs_multiple_change: 0.50
+  aum_growth_vs_derivatives_growth: 0.40
+  rationale: "Equity market is the common factor driving AUM (mark-to-market + flows), turnover (activity), and valuations (sentiment)."
+
+# Company-specific driver assumptions
+drivers:
+  bse:
+    derivatives_charge_per_lakh_inr: 0.045  # Rs 0.045 per lakh notional (post True-to-Label)
+    options_premium_turnover_ratio: 0.015  # Premium/Notional ratio
+    treasury_yield_on_sgf: 0.07  # ~7% on SGF/investment corpus
+    listing_fee_growth: 0.08
+    data_colocation_growth: 0.12
+    
+  cdsl:
+    transaction_charge_per_debit: 4.50  # Rs 4.50 per debit instruction
+    annual_issuer_charge_per_isin: 11000  # Rs 11,000 per ISIN
+    kyc_charge_per_record: 35  # Rs 35 per KYC record (CDSL Ventures)
+    active_account_ratio: 0.35  # ~35% of demat accounts are active
+
+  cams:
+    aum_yield_equity_bps: 4.0  # bps on equity AAUM
+    aum_yield_debt_bps: 1.5  # bps on debt AAUM
+    aum_yield_liquid_bps: 0.5  # bps on liquid AAUM
+    non_mf_revenue_share: 0.12  # 12% of revenue from non-MF (growing)
+    
+  kfin:
+    aum_yield_equity_bps: 3.8  # bps on equity AAUM (slightly lower than CAMS)
+    aum_yield_debt_bps: 1.4
+    non_mf_revenue_share: 0.20  # 20% from issuer solutions, international
+    international_growth: 0.25  # 25% growth in international revenue
+
+# ADV participation for sizing
+sizing:
+  adv_participation_pct: [10, 15, 20]
+  max_ownership_pct: 4.9  # Below 5% to avoid disclosure threshold
+  max_free_float_pct: 10.0  # Prudent limit
