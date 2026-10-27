@@ -1,10 +1,10 @@
 {
-  "pick": "BSE",
+  "pick": "CAMS",
   "fragile": false,
   "win_shares": {
-    "BSE": 99.3,
-    "CDSL": 0.0,
-    "CAMS": 0.7,
-    "KFIN": 0.0
+    "BSE": 0.0,
+    "CDSL": 2.4,
+    "CAMS": 96.4,
+    "KFIN": 1.2
   }
 }

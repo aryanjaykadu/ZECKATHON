@@ -154,28 +154,28 @@ def compute_volatility(price_data, days=252):
 
 
 # Free float percentages (from latest shareholding patterns)
-# Source: NSE XBRL shareholding filings Q2 FY2027 (Sep 2026)
+# Source: NSE XBRL shareholding filings Q2 FY2027 (Sep 30, 2026)
 FREE_FLOAT_PCT = {
-    "BSE": 0.75,   # Promoter ~0%, but large institutional holders
-    "CDSL": 0.76,  # BSE holds ~20%, rest public
-    "CAMS": 0.72,  # NSE Investments ~37.5% (strategic, non-free-float treatment varies)
-    "KFINTECH": 0.68,  # General Atlantic + promoter ~32%
-    "KFIN": 0.68,  # Alias for KFINTECH
+    "BSE": 1.00,       # 100% public shareholding (no promoter)
+    "CDSL": 0.85,      # 85.0% public shareholding (BSE holds 15.0%)
+    "CAMS": 1.00,      # 100% public shareholding (institutional/public)
+    "KFINTECH": 0.8594, # 85.94% public shareholding
+    "KFIN": 0.8594,    # Alias for KFINTECH
 }
 
+# Audited shares outstanding from Q2 FY2027 (Sep 30, 2026) shareholding XBRL filings:
+# BSE: 407,884,077 shares (post bonus and splits)
+# CDSL: 209,000,000 shares (post 1:1 bonus)
+# CAMS: 248,418,378 shares
+# KFINTECH: 172,872,079 paid-up shares (173,797,185 diluted)
 SHARES_OUTSTANDING = {
-    "BSE": 10756803,
-    "CDSL": 10447516,  # Post bonus: 20895032 (1:1 bonus in FY2024)
-    "CAMS": 20750000,  # ~2.075 crore (face value Rs 10)
-    "KFINTECH": 15940000,  # ~1.594 crore
-    "KFIN": 15940000,  # Alias for KFINTECH
+    "BSE": 407884077,
+    "CDSL": 209000000,
+    "CAMS": 248418378,
+    "KFINTECH": 172872079,
+    "KFIN": 172872079,
 }
 
-# Note: CDSL did a 1:1 bonus in Sep 2023. Shares doubled.
-# The seed data already uses post-bonus counts. Verify price data is adjusted.
-CDSL_BONUS_DATE = date(2023, 9, 14)
-CDSL_SHARES_PRE_BONUS = 10447516
-CDSL_SHARES_POST_BONUS = 20895032
 
 
 def get_latest_price(price_data):
@@ -232,9 +232,6 @@ def main():
         raw_beta, se_beta, blume_beta = compute_beta(stock_weekly, nifty_weekly)
         
         shares = SHARES_OUTSTANDING.get(co_name, None)
-        # Use post-bonus shares for CDSL
-        if co_name == "CDSL":
-            shares = CDSL_SHARES_POST_BONUS
             
         ff = FREE_FLOAT_PCT.get(co_name, None)
         mcap = compute_market_cap(latest_price, shares)

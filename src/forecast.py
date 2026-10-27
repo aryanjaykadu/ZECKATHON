@@ -67,7 +67,7 @@ def get_base_financials():
         "total_assets": bse["total_assets"]["FY2025"],
         "cfo": bse["cfo"]["FY2025"],
         "capex": bse["capex"]["FY2025"],
-        "shares": bse["shares_outstanding"]["FY2026"],
+        "shares": 407884077,  # Q2 FY2027 audited shareholding filing
         # Growth rates (FY25->FY26)
         "rev_growth_1y": (bse["revenue_from_operations"]["FY2026"] / bse["revenue_from_operations"]["FY2025"]) - 1,
         "pat_growth_1y": (bse["pat_total"]["FY2026"] / bse["pat_total"]["FY2025"]) - 1,
@@ -92,7 +92,7 @@ def get_base_financials():
         "total_assets": cdsl["total_assets"]["FY2025"],
         "cfo": cdsl["cfo"]["FY2025"],
         "capex": cdsl["capex"]["FY2025"],
-        "shares": 20895032,  # Post-bonus
+        "shares": 209000000,  # Q2 FY2027 audited shareholding filing
         "rev_growth_1y": (cdsl["revenue_from_operations"]["FY2025"] / cdsl["revenue_from_operations"]["FY2024"]) - 1,
         "pat_growth_1y": (cdsl["pat_total"]["FY2025"] / cdsl["pat_total"]["FY2024"]) - 1,
         "opex_ratio": cdsl["total_expenses"]["FY2025"] / cdsl["total_income"]["FY2025"],
@@ -115,7 +115,7 @@ def get_base_financials():
         "total_assets": cams["total_assets"]["FY2025"],
         "cfo": cams["cfo"]["FY2025"],
         "capex": cams["capex"]["FY2025"],
-        "shares": cams["shares_outstanding"]["FY2025"],
+        "shares": 248418378,  # Q2 FY2027 audited shareholding filing
         "rev_growth_1y": (cams["revenue_from_operations"]["FY2025"] / cams["revenue_from_operations"]["FY2024"]) - 1,
         "pat_growth_1y": (cams["pat_total"]["FY2025"] / cams["pat_total"]["FY2024"]) - 1,
         "opex_ratio": cams["total_expenses"]["FY2025"] / cams["total_income"]["FY2025"],
@@ -138,7 +138,7 @@ def get_base_financials():
         "total_assets": kfin["total_assets"]["FY2024"],
         "cfo": kfin["cfo"]["FY2024"],
         "capex": kfin["capex"]["FY2024"],
-        "shares": kfin["shares_outstanding"]["FY2024"],
+        "shares": 172872079,  # Q2 FY2027 audited shareholding filing (173,797,185 diluted)
         "rev_growth_1y": (kfin["revenue_from_operations"]["FY2024"] / kfin["revenue_from_operations"]["FY2023"]) - 1,
         "pat_growth_1y": (kfin["pat_total"]["FY2024"] / kfin["pat_total"]["FY2023"]) - 1,
         "opex_ratio": kfin["total_expenses"]["FY2024"] / kfin["total_income"]["FY2024"],
@@ -317,7 +317,7 @@ def reverse_dcf(company, current_price, base_fcff, wacc, terminal_growth, shares
     market_ev = current_price * shares / 100000  # INR to Lakhs
     
     # Binary search for growth rate
-    low, high = -0.20, 0.50
+    low, high = -0.20, 1.50
     for _ in range(100):
         mid = (low + high) / 2
         # Project FCFFs at constant growth

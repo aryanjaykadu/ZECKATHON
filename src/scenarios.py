@@ -208,11 +208,13 @@ def monte_carlo_simulation(n_draws=10000):
                     if random.random() < prob:
                         shock_adj *= 0.90  # Each shock takes ~10% off target
             
-            # Final 12-month price
-            drift = (target / price - 1) * shock_adj
+            # Final 12-month simulated price under Geometric Brownian Motion
+            # Fix: drift in log-normal diffusion is log(target/price), not (target/price - 1)
+            target_adj = max(target * shock_adj, price * 0.05)
+            log_drift = math.log(target_adj / price)
             noise = idio_z * idio_vol * math.sqrt(1)  # 1-year horizon
-            final_price = price * math.exp(drift + noise - 0.5 * vol ** 2)
-            final_price = max(final_price, price * 0.10)  # Floor at 90% loss
+            final_price = price * math.exp(log_drift + noise - 0.5 * idio_vol ** 2)
+            final_price = max(final_price, price * 0.05)  # Floor at 95% loss
             
             results[co].append(final_price)
     

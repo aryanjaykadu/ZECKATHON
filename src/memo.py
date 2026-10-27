@@ -312,9 +312,22 @@ def main():
     )
     if pick == "BSE":
         thesis += (
-            "BSE wins 99.3% of Monte Carlo draws due to explosive derivatives revenue growth "
-            "(15x in 4 years), strong operating leverage, and reasonable valuation relative to "
-            "intrinsic value. Key risk is regulatory (SEBI F&O restrictions)."
+            "BSE has demonstrated explosive derivatives revenue growth (15x in 4 years) and high ROE, "
+            "but trades at peak multiples (55.1x P/E) with acute single-product regulatory vulnerability "
+            "to SEBI F&O restrictions."
+        )
+    elif pick == "CAMS":
+        thesis += (
+            "CAMS emerges as the robust institutional pick (96.4% Monte Carlo win share) due to superior "
+            "valuation support (29.6x P/E, lowest in universe), an unassailable 100/100 forensic score, "
+            "negative accruals, 68% market share in mutual fund RTA, and the lowest fundamental downside "
+            "under combined regulatory and market stress tests."
+        )
+    elif pick == "CDSL":
+        thesis += (
+            "CDSL provides pure-play depository exposure (85% free float, 66% demat market share) with "
+            "compelling cash conversion (98% FCF/PAT) and reasonable multiples (30.1x P/E), but faces "
+            "near-term growth moderation in incremental demat onboarding."
         )
     elements.append(Paragraph(thesis, body_style))
     elements.append(Spacer(1, 2*mm))
