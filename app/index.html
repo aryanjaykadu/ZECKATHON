@@ -3,426 +3,1075 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zekathon 2026 — Capital Allocation & Equity Research</title>
+  <title>Zekathon 2026 — Capital Allocation &amp; Equity Research</title>
+  <meta name="description" content="Institutional equity research and quantitative capital allocation model for ₹500 Crore Long-Only Mandate across Indian capital market infrastructure duopolies.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Ambient Liquid Glass Background Blobs -->
-  <div class="blob-container">
-    <div class="liquid-blob blob-1"></div>
-    <div class="liquid-blob blob-2"></div>
-    <div class="liquid-blob blob-3"></div>
-  </div>
+  <!-- Ambient Dark Background Depth -->
+  <div class="bg-ambient-layer"></div>
 
-  <!-- Noise Overlay for realistic frosted optical refraction -->
-  <div class="glass-overlay"></div>
+  <!-- Sticky Institutional Navigation -->
+  <header class="nav-wrapper">
+    <div class="nav-container">
+      <a href="#overview" class="nav-brand" aria-label="Zekathon Home">
+        <span class="brand-badge">ZETHETA × IIT PATNA TIC</span>
+        <div>
+          <span class="brand-name">ZECKATHON 2026</span>
+          <span class="brand-mandate"> · ₹500 Cr Equity Mandate</span>
+        </div>
+      </a>
 
-  <!-- Interactive Floating Glass Cursor Glow -->
-  <div class="cursor-glow" id="cursorGlow"></div>
-
-  <!-- Top Glass Navigation -->
-  <header class="glass-nav-wrapper">
-    <nav class="glass-nav">
-      <div class="nav-brand">
-        <span class="brand-pill">ZETHA × IITP</span>
-        <span class="brand-title">ZECKATHON 2026</span>
-      </div>
-      <div class="nav-links">
+      <!-- Desktop & Mobile Links -->
+      <nav class="nav-links" id="navLinks" aria-label="Main Navigation">
         <a href="#overview" class="nav-link active">Overview</a>
         <a href="#universe" class="nav-link">Universe</a>
         <a href="#valuation" class="nav-link">Valuation</a>
         <a href="#allocation" class="nav-link">₹500Cr Mandate</a>
         <a href="#forensics" class="nav-link">Forensics</a>
+        <a href="#warroom" class="nav-link">War Room</a>
         <a href="#tripwires" class="nav-link">Tripwires</a>
-      </div>
+      </nav>
+
+      <!-- Action Buttons & Mobile Hamburger -->
       <div class="nav-actions">
-        <a href="Zeckathon_Final_Research_Report.pdf" target="_blank" class="glass-btn download-btn hero-download">
-          <span>Full Research Report (PDF)</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <a href="Zeckathon_Final_Research_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="btnReportPdf">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Research Report</span>
         </a>
-        <a href="ic_memo.pdf" target="_blank" class="glass-btn download-btn">
-          <span>IC Memo (2-Page PDF)</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <a href="ic_memo.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" id="btnMemoPdf">
+          <span>IC Memo</span>
         </a>
       </div>
-    </nav>
+
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        ☰ Menu
+      </button>
+    </div>
   </header>
 
-  <!-- Main Hero Section -->
+  <!-- Main Content Area -->
   <main class="content-container">
+
+    <!-- 1. EXECUTIVE SUMMARY & HERO VERDICT -->
     <section id="overview" class="hero-section">
-      <div class="hero-badge bouncy">
-        <span class="pulse-dot"></span>
-        <span class="badge-text">CUTOFF ENFORCED: 2026-10-26 • 10,000 MC SIMULATION</span>
+      <div class="hero-meta-bar">
+        <div class="badge-tag">
+          <span class="badge-indicator"></span>
+          <span>CUTOFF ENFORCED: 2026-10-26</span>
+        </div>
+        <div class="badge-tag info">
+          <span class="badge-indicator"></span>
+          <span>10,000 MONTE CARLO SIMULATIONS</span>
+        </div>
+        <div class="badge-tag info">
+          <span class="badge-indicator"></span>
+          <span>AUDITED EVIDENCE LEDGER</span>
+        </div>
       </div>
-      
+
       <h1 class="hero-title">
-        The Capital Allocation <br>
-        <span class="gradient-text">Institutional Framework.</span>
+        The Capital Allocation <span class="highlight-emerald">Institutional Framework</span>
       </h1>
-      
       <p class="hero-subtitle">
-        An institution-grade, quantitative equity research model deploying a 
-        <strong>₹500 Crore Long-Only Mandate</strong> across India's capital market infrastructure duopolies.
+        An institutional-grade, quantitative equity research model deploying a 
+        <strong>₹500 Crore Long-Only Mandate</strong> across India's capital market infrastructure duopolies (CAMS, CDSL, BSE, KFintech).
       </p>
 
-      <!-- Liquid Hero Bento Banner -->
-      <div class="glass-card hero-verdict-card bouncy-hover">
+      <!-- Primary Conviction Hero Bento Box -->
+      <div class="hero-conviction-card">
         <div class="verdict-header">
           <div>
-            <span class="verdict-tag">PRIMARY CONVICTION PICK</span>
+            <div class="verdict-tag">Primary Conviction Pick</div>
             <h2 class="verdict-company">CAMS Limited <span class="verdict-ticker">(CAMS.NS)</span></h2>
           </div>
           <div class="verdict-stat-pill">
-            <span class="stat-number">96.4%</span>
-            <span class="stat-label">Monte Carlo Win Share</span>
+            <div class="stat-number font-mono">96.4%</div>
+            <div class="stat-label">Monte Carlo Win Share</div>
           </div>
         </div>
 
         <div class="verdict-grid">
           <div class="verdict-metric">
-            <span class="m-label">Current Price</span>
-            <span class="m-value">₹661.5</span>
+            <span class="m-label">Current Market Price</span>
+            <span class="m-value font-mono">₹661.5</span>
           </div>
           <div class="verdict-metric">
             <span class="m-label">12M Target (Base DCF)</span>
-            <span class="m-value hero-accent">₹278.8</span>
+            <span class="m-value font-mono text-emerald">₹278.8</span>
           </div>
           <div class="verdict-metric">
             <span class="m-label">Implied 5Y FCFF CAGR</span>
-            <span class="m-value highlight-green">34.9% (Lowest Hurdle)</span>
+            <span class="m-value font-mono text-emerald">34.9% <span class="text-subtle">(Lowest Hurdle)</span></span>
           </div>
           <div class="verdict-metric">
-            <span class="m-label">Fund Sizing</span>
-            <span class="m-value">₹300.0 Cr <span class="sub-weight">(60.0%)</span></span>
+            <span class="m-label">Mandate Allocation</span>
+            <span class="m-value font-mono">₹300.0 Cr <span class="text-subtle">(60.0%)</span></span>
           </div>
           <div class="verdict-metric">
             <span class="m-label">MII Ownership Cap</span>
-            <span class="m-value pass-badge">1.83% (PASS &lt; 4.9%)</span>
+            <span class="m-value font-mono status-tag-pass">1.83% (PASS &lt; 4.9%)</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Universe Comparison Grid -->
+    <!-- 2. MARKET INFRASTRUCTURE UNIVERSE -->
     <section id="universe" class="section-block">
       <div class="section-header">
-        <h3 class="section-title">The Market Infrastructure Universe</h3>
-        <p class="section-desc">Strictly audited comparative metrics across the 4 covered franchises.</p>
+        <div>
+          <h2 class="section-title">The Market Infrastructure Universe</h2>
+          <p class="section-desc">Strictly audited comparative valuation, profitability, and sizing across covered franchises.</p>
+        </div>
       </div>
 
       <div class="cards-grid">
         <!-- CAMS Card (Winner) -->
-        <div class="glass-card company-card active-border bouncy-hover" data-company="CAMS">
+        <article class="company-card featured-winner">
           <div class="card-top">
-            <span class="card-chip chip-winner">Winner (96.4%)</span>
-            <span class="card-price">₹661.5</span>
+            <span class="card-badge winner">Winner (96.4% Win)</span>
+            <span class="card-price font-mono">₹661.5</span>
           </div>
-          <h4 class="co-name">CAMS</h4>
-          <p class="co-role">Mutual Fund Registrar &amp; Transfer</p>
-          <div class="metric-row">
-            <span>Market Cap</span>
-            <strong>₹16,433 Cr</strong>
+          <h3 class="co-name">CAMS Limited</h3>
+          <p class="co-role">Mutual Fund Registrar &amp; Transfer Agent (68% AUM Share)</p>
+          <div class="metric-list">
+            <div class="metric-row">
+              <span>Market Capitalization</span>
+              <strong class="font-mono">₹16,433 Cr</strong>
+            </div>
+            <div class="metric-row">
+              <span>Base DCF Target</span>
+              <strong class="font-mono text-emerald">₹278.8</strong>
+            </div>
+            <div class="metric-row">
+              <span>Return on Equity (ROE)</span>
+              <strong class="font-mono text-emerald">37.5%</strong>
+            </div>
+            <div class="metric-row">
+              <span>Trailing P/E Ratio</span>
+              <strong class="font-mono">29.6x (Lowest)</strong>
+            </div>
+            <div class="metric-row">
+              <span>Mandate Allocation</span>
+              <strong class="font-mono text-emerald">₹300.0 Cr (60.0%)</strong>
+            </div>
           </div>
-          <div class="metric-row">
-            <span>Base DCF Target</span>
-            <strong class="hero-accent">₹278.8</strong>
+          <div class="card-footer-action">
+            <button class="btn btn-secondary btn-sm open-drilldown-btn" data-company="CAMS" style="width: 100%;">
+              Thesis &amp; Audit Notes
+            </button>
           </div>
-          <div class="metric-row">
-            <span>Return on Equity</span>
-            <strong class="highlight-green">37.5%</strong>
-          </div>
-          <div class="metric-row">
-            <span>Trailing P/E</span>
-            <strong>29.6x (Lowest)</strong>
-          </div>
-          <div class="metric-row">
-            <span>Mandate Sizing</span>
-            <strong>₹300.0 Cr (60.0%)</strong>
-          </div>
-        </div>
+        </article>
 
         <!-- CDSL Card -->
-        <div class="glass-card company-card bouncy-hover" data-company="CDSL">
+        <article class="company-card">
           <div class="card-top">
-            <span class="card-chip">Depository Duopoly</span>
-            <span class="card-price">₹1,196.0</span>
+            <span class="card-badge">Depository Duopoly</span>
+            <span class="card-price font-mono">₹1,196.0</span>
           </div>
-          <h4 class="co-name">CDSL</h4>
-          <p class="co-role">Central Depository Services</p>
-          <div class="metric-row">
-            <span>Market Cap</span>
-            <strong>₹24,996 Cr</strong>
+          <h3 class="co-name">CDSL</h3>
+          <p class="co-role">Central Depository Services (66% Demat Share)</p>
+          <div class="metric-list">
+            <div class="metric-row">
+              <span>Market Capitalization</span>
+              <strong class="font-mono">₹24,996 Cr</strong>
+            </div>
+            <div class="metric-row">
+              <span>Base DCF Target</span>
+              <strong class="font-mono">₹447.2</strong>
+            </div>
+            <div class="metric-row">
+              <span>Return on Equity (ROE)</span>
+              <strong class="font-mono text-emerald">37.7%</strong>
+            </div>
+            <div class="metric-row">
+              <span>Trailing P/E Ratio</span>
+              <strong class="font-mono">30.1x</strong>
+            </div>
+            <div class="metric-row">
+              <span>Mandate Allocation</span>
+              <strong class="font-mono">₹66.5 Cr (13.3%)</strong>
+            </div>
           </div>
-          <div class="metric-row">
-            <span>Base DCF Target</span>
-            <strong>₹447.2</strong>
+          <div class="card-footer-action">
+            <button class="btn btn-secondary btn-sm open-drilldown-btn" data-company="CDSL" style="width: 100%;">
+              Thesis &amp; Audit Notes
+            </button>
           </div>
-          <div class="metric-row">
-            <span>Return on Equity</span>
-            <strong>37.7%</strong>
-          </div>
-          <div class="metric-row">
-            <span>Trailing P/E</span>
-            <strong>30.1x</strong>
-          </div>
-          <div class="metric-row">
-            <span>Mandate Sizing</span>
-            <strong>₹66.5 Cr (13.3%)</strong>
-          </div>
-        </div>
+        </article>
 
-        <!-- BSE Card -->
-        <div class="glass-card company-card bouncy-hover" data-company="BSE">
+        <!-- BSE Limited Card -->
+        <article class="company-card">
           <div class="card-top">
-            <span class="card-chip">Exchange &amp; F&amp;O</span>
-            <span class="card-price">₹3,359.0</span>
+            <span class="card-badge">Exchange &amp; F&amp;O</span>
+            <span class="card-price font-mono">₹3,359.0</span>
           </div>
-          <h4 class="co-name">BSE Limited</h4>
-          <p class="co-role">Exchange &amp; Derivatives Platform</p>
-          <div class="metric-row">
-            <span>Market Cap</span>
-            <strong>₹137,008 Cr</strong>
+          <h3 class="co-name">BSE Limited</h3>
+          <p class="co-role">Exchange &amp; Derivatives Platform (Sole Competitor to NSE)</p>
+          <div class="metric-list">
+            <div class="metric-row">
+              <span>Market Capitalization</span>
+              <strong class="font-mono">₹137,008 Cr</strong>
+            </div>
+            <div class="metric-row">
+              <span>Base DCF Target</span>
+              <strong class="font-mono">₹596.2</strong>
+            </div>
+            <div class="metric-row">
+              <span>Return on Equity (ROE)</span>
+              <strong class="font-mono text-emerald">83.2%</strong>
+            </div>
+            <div class="metric-row">
+              <span>Trailing P/E Ratio</span>
+              <strong class="font-mono">55.1x</strong>
+            </div>
+            <div class="metric-row">
+              <span>Mandate Allocation</span>
+              <strong class="font-mono">₹66.5 Cr (13.3%)</strong>
+            </div>
           </div>
-          <div class="metric-row">
-            <span>Base DCF Target</span>
-            <strong>₹596.2</strong>
+          <div class="card-footer-action">
+            <button class="btn btn-secondary btn-sm open-drilldown-btn" data-company="BSE" style="width: 100%;">
+              Thesis &amp; Audit Notes
+            </button>
           </div>
-          <div class="metric-row">
-            <span>Return on Equity</span>
-            <strong class="highlight-green">83.2%</strong>
-          </div>
-          <div class="metric-row">
-            <span>Trailing P/E</span>
-            <strong>55.1x</strong>
-          </div>
-          <div class="metric-row">
-            <span>Mandate Sizing</span>
-            <strong>₹66.5 Cr (13.3%)</strong>
-          </div>
-        </div>
+        </article>
 
         <!-- KFintech Card -->
-        <div class="glass-card company-card bouncy-hover" data-company="KFIN">
+        <article class="company-card">
           <div class="card-top">
-            <span class="card-chip">32% Domestic + Global RTA</span>
-            <span class="card-price">₹829.0</span>
+            <span class="card-badge">RTA &amp; Issuer SaaS</span>
+            <span class="card-price font-mono">₹829.0</span>
           </div>
-          <h4 class="co-name">KFin Technologies</h4>
-          <p class="co-role">Registrar &amp; Issuer SaaS Platform</p>
-          <div class="metric-row">
-            <span>Market Cap</span>
-            <strong>₹14,331 Cr</strong>
+          <h3 class="co-name">KFin Technologies</h3>
+          <p class="co-role">Registrar &amp; Issuer SaaS Platform (32% Dom + Global)</p>
+          <div class="metric-list">
+            <div class="metric-row">
+              <span>Market Capitalization</span>
+              <strong class="font-mono">₹14,331 Cr</strong>
+            </div>
+            <div class="metric-row">
+              <span>Base DCF Target</span>
+              <strong class="font-mono">₹206.3</strong>
+            </div>
+            <div class="metric-row">
+              <span>Return on Equity (ROE)</span>
+              <strong class="font-mono text-emerald">23.2%</strong>
+            </div>
+            <div class="metric-row">
+              <span>Trailing P/E Ratio</span>
+              <strong class="font-mono">65.1x</strong>
+            </div>
+            <div class="metric-row">
+              <span>Mandate Allocation</span>
+              <strong class="font-mono">₹66.5 Cr (13.3%)</strong>
+            </div>
           </div>
-          <div class="metric-row">
-            <span>Base DCF Target</span>
-            <strong>₹206.3</strong>
+          <div class="card-footer-action">
+            <button class="btn btn-secondary btn-sm open-drilldown-btn" data-company="KFIN" style="width: 100%;">
+              Thesis &amp; Audit Notes
+            </button>
           </div>
-          <div class="metric-row">
-            <span>Return on Equity</span>
-            <strong>23.2%</strong>
-          </div>
-          <div class="metric-row">
-            <span>Trailing P/E</span>
-            <strong>65.1x</strong>
-          </div>
-          <div class="metric-row">
-            <span>Mandate Sizing</span>
-            <strong>₹66.5 Cr (13.3%)</strong>
-          </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <!-- Capital Deployment & Liquidity Execution (₹500 Cr) -->
-    <section id="allocation" class="section-block">
+    <!-- 3. COMPREHENSIVE VALUATION SUITE & SCENARIO ENGINE -->
+    <section id="valuation" class="section-block">
       <div class="section-header">
-        <h3 class="section-title">₹500 Crore Capital Sizing &amp; Regulatory Execution</h3>
-        <p class="section-desc">Iterative solver ensures zero breach of SEBI MII ownership caps (&lt;4.9%) and free-float (&lt;10.0%).</p>
+        <div>
+          <h2 class="section-title">Valuation Suite &amp; Scenario Engine</h2>
+          <p class="section-desc">Audited Discounted Cash Flow models, relative multiples, and dynamic sensitivity testing.</p>
+        </div>
       </div>
 
-      <div class="glass-card bouncy-hover table-card">
-        <div class="table-responsive">
-          <table class="glass-table">
+      <div class="tab-navigation" role="tablist">
+        <button class="tab-btn active" data-tab="tab-dcf" role="tab" id="tabBtnDcf">DCF Scenario Matrix</button>
+        <button class="tab-btn" data-tab="tab-relative" role="tab" id="tabBtnRelative">Relative Valuation</button>
+        <button class="tab-btn" data-tab="tab-montecarlo" role="tab" id="tabBtnMonteCarlo">Monte Carlo (10,000 Draws)</button>
+        <button class="tab-btn" data-tab="tab-simulator" role="tab" id="tabBtnSimulator">Interactive DCF Simulator</button>
+      </div>
+
+      <!-- Tab 1: DCF Scenario Matrix -->
+      <div class="tab-pane active" id="tab-dcf">
+        <div class="table-responsive-container">
+          <table class="fin-table">
             <thead>
               <tr>
                 <th>Company</th>
-                <th>Weight (%)</th>
-                <th>Allocation</th>
-                <th>Shares Target</th>
-                <th>Ownership</th>
-                <th>Free-Float</th>
-                <th>ADTV (30D)</th>
-                <th>15% ADV Days</th>
-                <th>Impact Cost</th>
+                <th>Scenario</th>
+                <th>WACC (%)</th>
+                <th>Terminal Growth</th>
+                <th>PV FCFFs (₹L)</th>
+                <th>Enterprise Value (₹L)</th>
+                <th>DCF Target / Share</th>
+                <th>Market Price</th>
+                <th>Return Potential</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="highlight-row">
-                <td><strong>CAMS (Primary Conviction)</strong></td>
-                <td><span class="pill-weight hero-pill">60.0%</span></td>
-                <td>₹300.00 Cr</td>
-                <td>4,535,147</td>
-                <td><span class="status-pass">1.83% (PASS)</span></td>
-                <td><span class="status-pass">1.83% (PASS)</span></td>
-                <td>₹81.3 Cr</td>
-                <td>26 Days</td>
-                <td>200 bps</td>
+              <!-- CAMS -->
+              <tr class="highlight-primary">
+                <td><strong>CAMS (Conviction)</strong></td>
+                <td><span class="badge-status-pass">Bull Case</span></td>
+                <td class="font-mono">14.75%</td>
+                <td class="font-mono">5.0%</td>
+                <td class="font-mono">272,892</td>
+                <td class="font-mono">864,997</td>
+                <td class="font-mono text-emerald">₹348.20</td>
+                <td class="font-mono">₹661.50</td>
+                <td class="font-mono text-negative">-47.4%</td>
+              </tr>
+              <tr class="highlight-primary">
+                <td><strong>CAMS (Conviction)</strong></td>
+                <td><span class="badge-status-pass">Base Case</span></td>
+                <td class="font-mono">14.75%</td>
+                <td class="font-mono">5.0%</td>
+                <td class="font-mono">232,712</td>
+                <td class="font-mono">692,599</td>
+                <td class="font-mono text-emerald">₹278.80</td>
+                <td class="font-mono">₹661.50</td>
+                <td class="font-mono text-negative">-57.9%</td>
+              </tr>
+              <tr class="highlight-primary">
+                <td><strong>CAMS (Conviction)</strong></td>
+                <td><span class="badge-status-pass">Bear Case</span></td>
+                <td class="font-mono">14.75%</td>
+                <td class="font-mono">5.0%</td>
+                <td class="font-mono">169,903</td>
+                <td class="font-mono">464,094</td>
+                <td class="font-mono">₹186.82</td>
+                <td class="font-mono">₹661.50</td>
+                <td class="font-mono text-negative">-71.8%</td>
+              </tr>
+
+              <!-- CDSL -->
+              <tr>
+                <td><strong>CDSL</strong></td>
+                <td><span class="badge-status-investigate">Bull Case</span></td>
+                <td class="font-mono">16.34%</td>
+                <td class="font-mono">5.0%</td>
+                <td class="font-mono">386,816</td>
+                <td class="font-mono">1,074,236</td>
+                <td class="font-mono">₹513.99</td>
+                <td class="font-mono">₹1,196.00</td>
+                <td class="font-mono text-negative">-57.0%</td>
               </tr>
               <tr>
                 <td><strong>CDSL</strong></td>
-                <td><span class="pill-weight">13.3%</span></td>
-                <td>₹66.50 Cr</td>
-                <td>556,020</td>
-                <td><span class="status-pass">0.27% (PASS)</span></td>
-                <td><span class="status-pass">0.31% (PASS)</span></td>
-                <td>₹111.5 Cr</td>
-                <td>5 Days</td>
-                <td>50 bps</td>
+                <td><span class="badge-status-investigate">Base Case</span></td>
+                <td class="font-mono">16.34%</td>
+                <td class="font-mono">5.0%</td>
+                <td class="font-mono">356,391</td>
+                <td class="font-mono">934,697</td>
+                <td class="font-mono">₹447.22</td>
+                <td class="font-mono">₹1,196.00</td>
+                <td class="font-mono text-negative">-62.6%</td>
+              </tr>
+              <tr>
+                <td><strong>CDSL</strong></td>
+                <td><span class="badge-status-investigate">Bear Case</span></td>
+                <td class="font-mono">16.34%</td>
+                <td class="font-mono">5.0%</td>
+                <td class="font-mono">259,419</td>
+                <td class="font-mono">637,231</td>
+                <td class="font-mono">₹304.90</td>
+                <td class="font-mono">₹1,196.00</td>
+                <td class="font-mono text-negative">-74.5%</td>
+              </tr>
+
+              <!-- BSE -->
+              <tr>
+                <td><strong>BSE Limited</strong></td>
+                <td><span class="badge-status-danger">Bull Case</span></td>
+                <td class="font-mono">14.76%</td>
+                <td class="font-mono">5.0%</td>
+                <td class="font-mono">1,169,280</td>
+                <td class="font-mono">3,730,619</td>
+                <td class="font-mono">₹914.63</td>
+                <td class="font-mono">₹3,359.00</td>
+                <td class="font-mono text-negative">-72.8%</td>
               </tr>
               <tr>
                 <td><strong>BSE Limited</strong></td>
-                <td><span class="pill-weight">13.3%</span></td>
-                <td>₹66.50 Cr</td>
-                <td>197,975</td>
-                <td><span class="status-pass">0.05% (PASS)</span></td>
-                <td><span class="status-pass">0.05% (PASS)</span></td>
-                <td>₹1,827.3 Cr</td>
-                <td>1 Day</td>
-                <td>10 bps</td>
+                <td><span class="badge-status-danger">Base Case</span></td>
+                <td class="font-mono">14.76%</td>
+                <td class="font-mono">5.0%</td>
+                <td class="font-mono">850,693</td>
+                <td class="font-mono">2,431,688</td>
+                <td class="font-mono">₹596.17</td>
+                <td class="font-mono">₹3,359.00</td>
+                <td class="font-mono text-negative">-82.3%</td>
               </tr>
               <tr>
-                <td><strong>KFintech</strong></td>
-                <td><span class="pill-weight">13.3%</span></td>
-                <td>₹66.50 Cr</td>
-                <td>802,171</td>
-                <td><span class="status-pass">0.46% (PASS)</span></td>
-                <td><span class="status-pass">0.54% (PASS)</span></td>
-                <td>₹61.5 Cr</td>
-                <td>8 Days</td>
-                <td>80 bps</td>
+                <td><strong>BSE Limited</strong></td>
+                <td><span class="badge-status-danger">Bear Case</span></td>
+                <td class="font-mono">14.76%</td>
+                <td class="font-mono">5.0%</td>
+                <td class="font-mono">554,647</td>
+                <td class="font-mono">1,465,095</td>
+                <td class="font-mono">₹359.19</td>
+                <td class="font-mono">₹3,359.00</td>
+                <td class="font-mono text-negative">-89.3%</td>
               </tr>
-              <tr class="cash-row">
-                <td><strong>Cash Reserve (T-Bills / Repo)</strong></td>
-                <td><span class="pill-weight">0.1%</span></td>
-                <td>₹0.50 Cr</td>
-                <td>—</td>
-                <td>—</td>
-                <td>—</td>
-                <td>Liquid G-Sec</td>
-                <td>Instant</td>
-                <td>0 bps</td>
+
+              <!-- KFIN -->
+              <tr>
+                <td><strong>KFin Technologies</strong></td>
+                <td><span class="badge-status-investigate">Bull Case</span></td>
+                <td class="font-mono">14.83%</td>
+                <td class="font-mono">5.0%</td>
+                <td class="font-mono">144,252</td>
+                <td class="font-mono">468,005</td>
+                <td class="font-mono">₹270.72</td>
+                <td class="font-mono">₹829.00</td>
+                <td class="font-mono text-negative">-67.3%</td>
               </tr>
-              <tr class="highlight-row" style="background: rgba(255, 255, 255, 0.08);">
-                <td><strong>Mandate Total</strong></td>
-                <td><span class="pill-weight hero-pill">100.0%</span></td>
-                <td><strong>₹500.00 Cr</strong></td>
-                <td><strong>6,091,313</strong></td>
-                <td><span class="status-pass">PASS &lt; 4.9%</span></td>
-                <td><span class="status-pass">PASS &lt; 10%</span></td>
-                <td><strong>Universe</strong></td>
-                <td><strong>~26 Days Max</strong></td>
-                <td><strong>~95 bps Blended</strong></td>
+              <tr>
+                <td><strong>KFin Technologies</strong></td>
+                <td><span class="badge-status-investigate">Base Case</span></td>
+                <td class="font-mono">14.83%</td>
+                <td class="font-mono">5.0%</td>
+                <td class="font-mono">119,984</td>
+                <td class="font-mono">356,596</td>
+                <td class="font-mono">₹206.28</td>
+                <td class="font-mono">₹829.00</td>
+                <td class="font-mono text-negative">-75.1%</td>
+              </tr>
+              <tr>
+                <td><strong>KFin Technologies</strong></td>
+                <td><span class="badge-status-investigate">Bear Case</span></td>
+                <td class="font-mono">14.83%</td>
+                <td class="font-mono">5.0%</td>
+                <td class="font-mono">84,975</td>
+                <td class="font-mono">228,812</td>
+                <td class="font-mono">₹132.36</td>
+                <td class="font-mono">₹829.00</td>
+                <td class="font-mono text-negative">-84.0%</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
+
+      <!-- Tab 2: Relative Valuation -->
+      <div class="tab-pane" id="tab-relative">
+        <div class="table-responsive-container">
+          <table class="fin-table">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Price (₹)</th>
+                <th>Market Cap (₹ Cr)</th>
+                <th>P/E</th>
+                <th>EV / EBITDA</th>
+                <th>EV / Sales</th>
+                <th>ROE (%)</th>
+                <th>FCF Yield (%)</th>
+                <th>Reverse-DCF Implied 5Y Growth</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight-primary">
+                <td><strong>CAMS (Conviction)</strong></td>
+                <td class="font-mono">₹661.50</td>
+                <td class="font-mono">₹16,432.9</td>
+                <td class="font-mono text-emerald">29.6x</td>
+                <td class="font-mono text-emerald">20.3x</td>
+                <td class="font-mono text-emerald">12.6x</td>
+                <td class="font-mono text-emerald">37.5%</td>
+                <td class="font-mono text-emerald">3.07%</td>
+                <td class="font-mono text-emerald"><strong>34.92% (Lowest Hurdle)</strong></td>
+              </tr>
+              <tr>
+                <td><strong>CDSL</strong></td>
+                <td class="font-mono">₹1,196.00</td>
+                <td class="font-mono">₹24,996.4</td>
+                <td class="font-mono">30.1x</td>
+                <td class="font-mono">21.6x</td>
+                <td class="font-mono">18.1x</td>
+                <td class="font-mono text-emerald">37.7%</td>
+                <td class="font-mono text-emerald">3.26%</td>
+                <td class="font-mono">38.34%</td>
+              </tr>
+              <tr>
+                <td><strong>BSE Limited</strong></td>
+                <td class="font-mono">₹3,359.00</td>
+                <td class="font-mono">₹137,008.3</td>
+                <td class="font-mono">55.1x</td>
+                <td class="font-mono">39.5x</td>
+                <td class="font-mono">28.3x</td>
+                <td class="font-mono text-emerald">83.2%</td>
+                <td class="font-mono">0.77%</td>
+                <td class="font-mono text-negative">81.09% (Extreme Exuberance)</td>
+              </tr>
+              <tr>
+                <td><strong>KFin Technologies</strong></td>
+                <td class="font-mono">₹829.00</td>
+                <td class="font-mono">₹14,331.1</td>
+                <td class="font-mono">65.1x</td>
+                <td class="font-mono">40.9x</td>
+                <td class="font-mono">20.2x</td>
+                <td class="font-mono">23.2%</td>
+                <td class="font-mono">1.74%</td>
+                <td class="font-mono">52.80%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab 3: Monte Carlo Stats -->
+      <div class="tab-pane" id="tab-montecarlo">
+        <div class="table-responsive-container">
+          <table class="fin-table">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Current Price</th>
+                <th>Mean Price</th>
+                <th>P10 (Stress)</th>
+                <th>P50 (Median)</th>
+                <th>P90 (Optimistic)</th>
+                <th>Expected Return</th>
+                <th>5% CVaR</th>
+                <th>Win Share (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight-primary">
+                <td><strong>CAMS (Conviction)</strong></td>
+                <td class="font-mono">₹661.50</td>
+                <td class="font-mono text-emerald">₹260.63</td>
+                <td class="font-mono">₹196.76</td>
+                <td class="font-mono text-emerald">₹261.15</td>
+                <td class="font-mono">₹322.02</td>
+                <td class="font-mono text-negative">-60.6%</td>
+                <td class="font-mono text-negative">-74.4%</td>
+                <td><span class="badge-status-pass font-mono">96.4% WINNER</span></td>
+              </tr>
+              <tr>
+                <td><strong>CDSL</strong></td>
+                <td class="font-mono">₹1,196.00</td>
+                <td class="font-mono">₹411.14</td>
+                <td class="font-mono">₹326.63</td>
+                <td class="font-mono">₹419.83</td>
+                <td class="font-mono">₹484.71</td>
+                <td class="font-mono text-negative">-65.6%</td>
+                <td class="font-mono text-negative">-75.5%</td>
+                <td class="font-mono">2.4%</td>
+              </tr>
+              <tr>
+                <td><strong>KFin Technologies</strong></td>
+                <td class="font-mono">₹829.00</td>
+                <td class="font-mono">₹195.97</td>
+                <td class="font-mono">₹134.85</td>
+                <td class="font-mono">₹191.97</td>
+                <td class="font-mono">₹261.97</td>
+                <td class="font-mono text-negative">-76.4%</td>
+                <td class="font-mono text-negative">-86.6%</td>
+                <td class="font-mono">1.2%</td>
+              </tr>
+              <tr>
+                <td><strong>BSE Limited</strong></td>
+                <td class="font-mono">₹3,359.00</td>
+                <td class="font-mono">₹601.00</td>
+                <td class="font-mono">₹358.54</td>
+                <td class="font-mono">₹575.13</td>
+                <td class="font-mono">₹879.24</td>
+                <td class="font-mono text-negative">-82.1%</td>
+                <td class="font-mono text-negative">-91.8%</td>
+                <td class="font-mono">0.0%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab 4: Interactive DCF Sensitivity Simulator Form -->
+      <div class="tab-pane" id="tab-simulator">
+        <div class="card-panel">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">Interactive DCF Parameter Simulator</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 24px;">
+            Simulate intrinsic value variations based on terminal growth rates (g) and Weighted Average Cost of Capital (WACC) assumptions.
+          </p>
+
+          <form id="dcfSimulatorForm" onsubmit="return false;">
+            <div class="simulator-form-grid">
+              <div class="form-group">
+                <label for="calcCompany" class="form-label">Select Company</label>
+                <select id="calcCompany" class="form-select">
+                  <option value="CAMS" selected>CAMS Limited (Base Target: ₹278.8)</option>
+                  <option value="CDSL">CDSL (Base Target: ₹447.2)</option>
+                  <option value="BSE">BSE Limited (Base Target: ₹596.2)</option>
+                  <option value="KFIN">KFin Technologies (Base Target: ₹206.3)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="calcWacc" class="form-label">WACC (%) [Cost of Capital]</label>
+                <input type="number" id="calcWacc" class="form-input font-mono" value="14.75" step="0.25" min="10" max="22">
+              </div>
+
+              <div class="form-group">
+                <label for="calcGrowth" class="form-label">Terminal Growth Rate g (%)</label>
+                <input type="number" id="calcGrowth" class="form-input font-mono" value="5.0" step="0.25" min="2" max="8">
+              </div>
+            </div>
+
+            <div class="calc-output-box">
+              <div>
+                <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase;">Simulated Intrinsic Target</span>
+                <div id="calcOutputTarget" class="modal-mono font-mono" style="font-size: 1.85rem; font-weight: 800; color: var(--accent-emerald);">
+                  ₹278.8
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase;">Implied Spread</span>
+                <div id="calcDiffPercent" class="modal-mono font-mono text-negative" style="font-size: 1.15rem; font-weight: 700;">
+                  -57.9% vs Market (₹661.5)
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </section>
 
-    <!-- Forensic Due Diligence -->
+    <!-- 4. CAPITAL SIZING & LIQUIDITY EXECUTION (₹500 CR MANDATE) -->
+    <section id="allocation" class="section-block">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">₹500 Crore Capital Sizing &amp; Execution</h2>
+          <p class="section-desc">Iterative solver ensures zero breach of SEBI MII ownership caps (&lt;4.9%) and free-float (&lt;10.0%).</p>
+        </div>
+      </div>
+
+      <div class="table-responsive-container">
+        <table class="fin-table">
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Allocation (%)</th>
+              <th>Allocation (₹ Cr)</th>
+              <th>Shares Target</th>
+              <th>Ownership (%)</th>
+              <th>Free-Float (%)</th>
+              <th>ADTV (30D)</th>
+              <th>15% ADV Days</th>
+              <th>Impact Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-primary">
+              <td><strong>CAMS (Primary Conviction)</strong></td>
+              <td><span class="badge-status-pass font-mono">60.0%</span></td>
+              <td class="font-mono">₹300.00 Cr</td>
+              <td class="font-mono">4,535,147</td>
+              <td class="font-mono"><span class="badge-status-pass">1.83% (PASS &lt; 4.9%)</span></td>
+              <td class="font-mono"><span class="badge-status-pass">1.83% (PASS &lt; 10%)</span></td>
+              <td class="font-mono">₹81.3 Cr</td>
+              <td class="font-mono">26 Days</td>
+              <td class="font-mono">200 bps</td>
+            </tr>
+            <tr>
+              <td><strong>CDSL</strong></td>
+              <td><span class="font-mono">13.3%</span></td>
+              <td class="font-mono">₹66.50 Cr</td>
+              <td class="font-mono">556,020</td>
+              <td class="font-mono"><span class="badge-status-pass">0.27% (PASS)</span></td>
+              <td class="font-mono"><span class="badge-status-pass">0.31% (PASS)</span></td>
+              <td class="font-mono">₹111.5 Cr</td>
+              <td class="font-mono">5 Days</td>
+              <td class="font-mono">50 bps</td>
+            </tr>
+            <tr>
+              <td><strong>BSE Limited</strong></td>
+              <td><span class="font-mono">13.3%</span></td>
+              <td class="font-mono">₹66.50 Cr</td>
+              <td class="font-mono">197,975</td>
+              <td class="font-mono"><span class="badge-status-pass">0.05% (PASS)</span></td>
+              <td class="font-mono"><span class="badge-status-pass">0.05% (PASS)</span></td>
+              <td class="font-mono">₹1,827.3 Cr</td>
+              <td class="font-mono">1 Day</td>
+              <td class="font-mono">10 bps</td>
+            </tr>
+            <tr>
+              <td><strong>KFin Technologies</strong></td>
+              <td><span class="font-mono">13.3%</span></td>
+              <td class="font-mono">₹66.50 Cr</td>
+              <td class="font-mono">802,171</td>
+              <td class="font-mono"><span class="badge-status-pass">0.46% (PASS)</span></td>
+              <td class="font-mono"><span class="badge-status-pass">0.54% (PASS)</span></td>
+              <td class="font-mono">₹61.5 Cr</td>
+              <td class="font-mono">8 Days</td>
+              <td class="font-mono">80 bps</td>
+            </tr>
+            <tr>
+              <td><strong>Cash Reserve (T-Bills / Repo)</strong></td>
+              <td><span class="font-mono">0.1%</span></td>
+              <td class="font-mono">₹0.50 Cr</td>
+              <td class="font-mono">—</td>
+              <td class="font-mono">—</td>
+              <td class="font-mono">—</td>
+              <td class="font-mono">Liquid G-Sec</td>
+              <td class="font-mono">Instant</td>
+              <td class="font-mono">0 bps</td>
+            </tr>
+            <tr class="total-row">
+              <td><strong>Mandate Total</strong></td>
+              <td><span class="badge-status-pass font-mono">100.0%</span></td>
+              <td class="font-mono"><strong>₹500.00 Cr</strong></td>
+              <td class="font-mono"><strong>6,091,313</strong></td>
+              <td class="font-mono"><span class="badge-status-pass">ALL PASS &lt; 4.9%</span></td>
+              <td class="font-mono"><span class="badge-status-pass">ALL PASS &lt; 10%</span></td>
+              <td class="font-mono"><strong>Universe</strong></td>
+              <td class="font-mono"><strong>~26 Days Max</strong></td>
+              <td class="font-mono"><strong>~95 bps Blended</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5. FORENSIC DUE DILIGENCE & GOVERNANCE -->
     <section id="forensics" class="section-block">
       <div class="section-header">
-        <h3 class="section-title">Forensic Quality &amp; Governance Ledger</h3>
-        <p class="section-desc">Beneish M-Score, Cash Conversion, and Audit Integrity rigorously audited.</p>
+        <div>
+          <h2 class="section-title">Forensic Quality &amp; Governance Ledger</h2>
+          <p class="section-desc">Beneish M-Score, Cash Conversion, and Audit Integrity rigorously audited.</p>
+        </div>
       </div>
 
       <div class="forensics-grid">
-        <div class="glass-card metric-glass-box bouncy-hover">
-          <span class="box-tag">CAMS</span>
-          <div class="box-score">100<span class="total">/100</span></div>
-          <span class="box-title">Composite Quality</span>
-          <p class="box-detail">Beneish M-Score: <strong>-1.92 (PASS)</strong> | CFO/EBITDA: <strong>71.6%</strong> | FCF/PAT: <strong>91.0%</strong> | Big-4: EY Batliboi</p>
+        <!-- CAMS -->
+        <article class="forensic-card">
+          <div class="forensic-card-header">
+            <span class="forensic-co">CAMS Limited</span>
+            <span class="badge-status-pass">PASS</span>
+          </div>
+          <div class="box-score font-mono">100<span class="total">/100</span></div>
+          <span class="box-title">Composite Quality Score</span>
+          <div class="forensic-details-list">
+            <div class="forensic-detail-item">
+              <span>Beneish M-Score:</span>
+              <strong class="font-mono text-emerald">-1.92 (PASS)</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>CFO / EBITDA:</span>
+              <strong class="font-mono text-emerald">71.6%</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>FCF / PAT:</span>
+              <strong class="font-mono text-emerald">91.0%</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>Statutory Auditor:</span>
+              <strong>S.R. Batliboi (EY)</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>Audit Opinion:</span>
+              <strong class="text-emerald">Clean, Unqualified</strong>
+            </div>
+          </div>
+        </article>
+
+        <!-- KFintech -->
+        <article class="forensic-card">
+          <div class="forensic-card-header">
+            <span class="forensic-co">KFin Technologies</span>
+            <span class="badge-status-pass">PASS</span>
+          </div>
+          <div class="box-score font-mono">100<span class="total">/100</span></div>
+          <span class="box-title">Composite Quality Score</span>
+          <div class="forensic-details-list">
+            <div class="forensic-detail-item">
+              <span>Beneish M-Score:</span>
+              <strong class="font-mono text-emerald">-2.02 (PASS)</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>CFO / EBITDA:</span>
+              <strong class="font-mono text-emerald">85.7%</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>FCF / PAT:</span>
+              <strong class="font-mono text-emerald">113.6%</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>Statutory Auditor:</span>
+              <strong>MSKA &amp; Assoc (BDO)</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>Audit Opinion:</span>
+              <strong class="text-emerald">Clean, Unqualified</strong>
+            </div>
+          </div>
+        </article>
+
+        <!-- CDSL -->
+        <article class="forensic-card">
+          <div class="forensic-card-header">
+            <span class="forensic-co">CDSL</span>
+            <span class="badge-status-investigate">INVESTIGATE</span>
+          </div>
+          <div class="box-score font-mono">80<span class="total">/100</span></div>
+          <span class="box-title">Composite Quality Score</span>
+          <div class="forensic-details-list">
+            <div class="forensic-detail-item">
+              <span>Beneish M-Score:</span>
+              <strong class="font-mono text-warning">-1.77 (Growth driven)</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>CFO / EBITDA:</span>
+              <strong class="font-mono">73.6%</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>FCF / PAT:</span>
+              <strong class="font-mono text-emerald">98.2%</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>Statutory Auditor:</span>
+              <strong>Walker Chandiok (GT)</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>Audit Opinion:</span>
+              <strong class="text-emerald">Clean, Unqualified</strong>
+            </div>
+          </div>
+        </article>
+
+        <!-- BSE -->
+        <article class="forensic-card">
+          <div class="forensic-card-header">
+            <span class="forensic-co">BSE Limited</span>
+            <span class="badge-status-investigate">INVESTIGATE</span>
+          </div>
+          <div class="box-score font-mono">75<span class="total">/100</span></div>
+          <span class="box-title">Composite Quality Score</span>
+          <div class="forensic-details-list">
+            <div class="forensic-detail-item">
+              <span>Beneish M-Score:</span>
+              <strong class="font-mono text-warning">-1.57 (Vol spike)</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>CFO / EBITDA:</span>
+              <strong class="font-mono">63.1%</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>FCF / PAT:</span>
+              <strong class="font-mono">80.2%</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>Statutory Auditor:</span>
+              <strong>Deloitte Haskins &amp; Sells</strong>
+            </div>
+            <div class="forensic-detail-item">
+              <span>Audit Opinion:</span>
+              <strong class="text-emerald">Clean, Unqualified</strong>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 6. ADVERSARIAL WAR ROOM DEBATES -->
+    <section id="warroom" class="section-block">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Adversarial War Room Debates</h2>
+          <p class="section-desc">Interactive stress-test between Bull thesis drivers, Bear risks, and IC rebuttals.</p>
+        </div>
+      </div>
+
+      <div class="warroom-controls">
+        <button class="warroom-filter-btn active" data-filter="all">All Arguments</button>
+        <button class="warroom-filter-btn" data-filter="CAMS">CAMS</button>
+        <button class="warroom-filter-btn" data-filter="CDSL">CDSL</button>
+        <button class="warroom-filter-btn" data-filter="BSE">BSE</button>
+        <button class="warroom-filter-btn" data-filter="KFIN">KFintech</button>
+      </div>
+
+      <div class="warroom-list">
+        <!-- CAMS Bull -->
+        <div class="warroom-card side-bull" data-company="CAMS">
+          <div class="warroom-card-head">
+            <span class="warroom-company-tag">CAMS Limited</span>
+            <span class="warroom-side-badge bull">BULL ARGUMENT</span>
+          </div>
+          <p class="warroom-arg">Perfect forensic score (100/100). CAMS has cleanest accounting, highest cash conversion (91% FCF/PAT), and 68% AUM market share moat.</p>
+          <div class="warroom-footer">
+            <span class="warroom-data-pt"><strong>Data Point:</strong> M-score = -1.92 (PASS), CFO/EBITDA = 0.716</span>
+            <span class="warroom-rebuttal"><strong>IC Counter-Review:</strong> Quality doesn't prevent revenue decline if SEBI cuts TERs again, but switching costs create massive resilience.</span>
+          </div>
         </div>
 
-        <div class="glass-card metric-glass-box bouncy-hover">
-          <span class="box-tag">KFintech</span>
-          <div class="box-score">100<span class="total">/100</span></div>
-          <span class="box-title">Composite Quality</span>
-          <p class="box-detail">Beneish M-Score: <strong>-2.02 (PASS)</strong> | CFO/EBITDA: <strong>85.7%</strong> | FCF/PAT: <strong>113.6%</strong> | Big-4: MSKA &amp; Assoc</p>
+        <!-- CAMS Bear -->
+        <div class="warroom-card side-bear" data-company="CAMS">
+          <div class="warroom-card-head">
+            <span class="warroom-company-tag">CAMS Limited</span>
+            <span class="warroom-side-badge bear">BEAR ARGUMENT</span>
+          </div>
+          <p class="warroom-arg">Top 5 AMC clients represent ~65% of serviced AUM. Loss of a single major AMC permanently impairs revenue.</p>
+          <div class="warroom-footer">
+            <span class="warroom-data-pt"><strong>Data Point:</strong> Client concentration risk: top 5 AMCs ~65% of revenue</span>
+            <span class="warroom-rebuttal"><strong>IC Rebuttal:</strong> CAMS has &gt;99% client retention rate over 15+ years; proprietary technology workflows prevent defection.</span>
+          </div>
         </div>
 
-        <div class="glass-card metric-glass-box bouncy-hover">
-          <span class="box-tag">CDSL</span>
-          <div class="box-score">80<span class="total">/100</span></div>
-          <span class="box-title">Composite Quality</span>
-          <p class="box-detail">Beneish M-Score: <strong>-1.77</strong> (DSRI growth-driven) | CFO/EBITDA: <strong>73.6%</strong> | Big-4: Walker Chandiok</p>
+        <!-- BSE Bull -->
+        <div class="warroom-card side-bull" data-company="BSE">
+          <div class="warroom-card-head">
+            <span class="warroom-company-tag">BSE Limited</span>
+            <span class="warroom-side-badge bull">BULL ARGUMENT</span>
+          </div>
+          <p class="warroom-arg">Derivatives revenue exploded from ₹25,000L (FY22) to ₹380,000L (FY26) — 15x in 4 years. Structural moat as India's sole exchange competitor to NSE.</p>
+          <div class="warroom-footer">
+            <span class="warroom-data-pt"><strong>Data Point:</strong> Revenue CAGR FY22-FY26 ~67%</span>
+            <span class="warroom-rebuttal"><strong>IC Counter-Review:</strong> Growth is heavily concentrated in Sensex options; regulatory curbs can immediately truncate run-rate.</span>
+          </div>
         </div>
 
-        <div class="glass-card metric-glass-box bouncy-hover">
-          <span class="box-tag">BSE</span>
-          <div class="box-score">75<span class="total">/100</span></div>
-          <span class="box-title">Composite Quality</span>
-          <p class="box-detail">Beneish M-Score: <strong>-1.57</strong> (Volume explosion) | CFO/EBITDA: <strong>63.1%</strong> | Big-4: Deloitte Haskins</p>
+        <!-- BSE Bear -->
+        <div class="warroom-card side-bear" data-company="BSE">
+          <div class="warroom-card-head">
+            <span class="warroom-company-tag">BSE Limited</span>
+            <span class="warroom-side-badge bear">BEAR ARGUMENT</span>
+          </div>
+          <p class="warroom-arg">73.8% of revenue from derivatives in FY2026. Extreme single-product concentration while SEBI tightens weekly expiry guidelines.</p>
+          <div class="warroom-footer">
+            <span class="warroom-data-pt"><strong>Data Point:</strong> Derivatives concentration: 73.8% of total revenue</span>
+            <span class="warroom-rebuttal"><strong>IC Rebuttal:</strong> BSE is diversifying into data, co-location, and listing fees; treasury income provides cash floor. Mandate allocation strictly capped at 13.3%.</span>
+          </div>
+        </div>
+
+        <!-- CDSL Bull -->
+        <div class="warroom-card side-bull" data-company="CDSL">
+          <div class="warroom-card-head">
+            <span class="warroom-company-tag">CDSL</span>
+            <span class="warroom-side-badge bull">BULL ARGUMENT</span>
+          </div>
+          <p class="warroom-arg">Structural beneficiary of financialization. Demat accounts grew from 55M (Mar-21) to 270M (Aug-26) with CDSL holding 66% market share.</p>
+          <div class="warroom-footer">
+            <span class="warroom-data-pt"><strong>Data Point:</strong> Demat accounts: 270M, CDSL share: 66%, FCF/PAT = 0.982</span>
+            <span class="warroom-rebuttal"><strong>IC Counter-Review:</strong> Monthly net additions decelerating from peak 4M/mo to ~2M/mo; transaction fees remain cyclical.</span>
+          </div>
+        </div>
+
+        <!-- KFIN Bull -->
+        <div class="warroom-card side-bull" data-company="KFIN">
+          <div class="warroom-card-head">
+            <span class="warroom-company-tag">KFin Technologies</span>
+            <span class="warroom-side-badge bull">BULL ARGUMENT</span>
+          </div>
+          <p class="warroom-arg">Highest CFO/EBITDA (0.857) and best M-score (-2.02). Non-MF diversification (34.4% of revenue) shields business from domestic TER shocks.</p>
+          <div class="warroom-footer">
+            <span class="warroom-data-pt"><strong>Data Point:</strong> Non-MF revenue: 34.4%, Forensic score: 100/100</span>
+            <span class="warroom-rebuttal"><strong>IC Counter-Review:</strong> Stale seed data for FY25-FY26 warrants conservative sizing at 13.3%.</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Exit Tripwires -->
+    <!-- 7. OBSERVABLE EXIT TRIPWIRES -->
     <section id="tripwires" class="section-block">
       <div class="section-header">
-        <h3 class="section-title">Observable Exit Tripwires</h3>
-        <p class="section-desc">Disciplined rules that trigger automated fund liquidation or review.</p>
+        <div>
+          <h2 class="section-title">Observable Exit Tripwires</h2>
+          <p class="section-desc">Disciplined rules that trigger automated fund liquidation or IC review.</p>
+        </div>
       </div>
 
       <div class="tripwire-list">
-        <div class="glass-card tripwire-item bouncy-hover">
-          <div class="tw-badge red">BSE_TW1</div>
+        <div class="tripwire-card">
+          <div class="tw-badge danger">BSE_TW1</div>
           <div class="tw-content">
             <h5>Derivatives Volume Collapse</h5>
-            <p>Monthly average F&amp;O premium turnover falls &gt;40% below FY2026 average for 2 consecutive calendar months.</p>
+            <p>Monthly average F&amp;O premium turnover falls &gt;40% below FY2026 average (&lt; ₹15 Lakh Cr) for 2 consecutive calendar months.</p>
           </div>
           <div class="tw-action">
-            <span class="action-tag">ACTION: FULL EXIT</span>
-            <span class="status-chip pass">NOT TRIGGERED</span>
+            <span class="tw-action-text text-negative">ACTION: FULL EXIT</span>
+            <span class="badge-status-pass">NOT TRIGGERED</span>
           </div>
         </div>
 
-        <div class="glass-card tripwire-item bouncy-hover">
-          <div class="tw-badge yellow">BSE_TW2</div>
+        <div class="tripwire-card">
+          <div class="tw-badge warning">BSE_TW2</div>
           <div class="tw-content">
             <h5>Regulatory Escalation Beyond Nov-24 Curbs</h5>
             <p>SEBI announces further lot size increases (&gt;₹25L) or bans single weekly index expiry.</p>
           </div>
           <div class="tw-action">
-            <span class="action-tag">ACTION: REDUCE 50%</span>
-            <span class="status-chip pass">NOT TRIGGERED</span>
+            <span class="tw-action-text text-warning">ACTION: REDUCE 50%</span>
+            <span class="badge-status-pass">NOT TRIGGERED</span>
           </div>
         </div>
 
-        <div class="glass-card tripwire-item bouncy-hover">
-          <div class="tw-badge blue">BSE_TW3</div>
+        <div class="tripwire-card">
+          <div class="tw-badge info">BSE_TW3</div>
           <div class="tw-content">
             <h5>Bear DCF Anchor Price Breach</h5>
             <p>BSE stock price trades &gt;20% below bear-case DCF target (&lt;₹287.4) for 5 consecutive sessions.</p>
           </div>
           <div class="tw-action">
-            <span class="action-tag">ACTION: IC REVIEW</span>
-            <span class="status-chip pass">SAFE (+1,068.9%)</span>
+            <span class="tw-action-text text-info">ACTION: IC REVIEW</span>
+            <span class="badge-status-pass">SAFE (+1,068.9%)</span>
+          </div>
+        </div>
+
+        <div class="tripwire-card">
+          <div class="tw-badge warning">CDSL_TW1</div>
+          <div class="tw-content">
+            <h5>Demat Openings Deceleration</h5>
+            <p>Monthly net new demat account openings drop below 1.5 million for 3 consecutive months.</p>
+          </div>
+          <div class="tw-action">
+            <span class="tw-action-text text-warning">ACTION: REDUCE 30%</span>
+            <span class="badge-status-pass">NOT TRIGGERED</span>
+          </div>
+        </div>
+
+        <div class="tripwire-card">
+          <div class="tw-badge danger">CAMS_TW2</div>
+          <div class="tw-content">
+            <h5>Loss of Top-5 AMC Client</h5>
+            <p>Any top-5 AMC announces an RTA switch or in-housing of registrar functions.</p>
+          </div>
+          <div class="tw-action">
+            <span class="tw-action-text text-negative">ACTION: FULL EXIT</span>
+            <span class="badge-status-pass">NOT TRIGGERED</span>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Liquid Glass Footer -->
-  <footer class="glass-footer">
+  <!-- Drilldown Modal Dialog -->
+  <div class="modal-backdrop" id="detailModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Investment Thesis Drilldown</h3>
+        <button class="modal-close-btn" id="modalClose" aria-label="Close dialog">&times;</button>
+      </div>
+      <div class="modal-body" id="modalContent">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Institutional Site Footer -->
+  <footer class="site-footer">
     <div class="footer-inner">
-      <p><strong>Zekathon 2026</strong> • Quantitative Equity Research Mandate • Programmatically Verified</p>
-      <p class="sub">All numeric claims provenanced in <code>data/provenance.csv</code>. Strict Cutoff 2026-10-26.</p>
+      <div>
+        <p class="footer-brand">Zekathon 2026 — Institutional Equity Research Mandate</p>
+        <p class="footer-provenance">Zetheta × IIT Patna TIC | ₹500 Cr Long-Only Capital Allocation | Strict Cutoff: 2026-10-26</p>
+      </div>
+      <div style="text-align: right;">
+        <p class="footer-provenance">Every figure verified against <code>data/provenance.csv</code>.</p>
+        <p class="footer-provenance">Programmatically audited with zero unprovenanced assertions.</p>
+      </div>
     </div>
   </footer>
 
