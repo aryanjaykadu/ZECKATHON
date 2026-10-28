@@ -24,6 +24,7 @@
 - [x] **P11 Memo (`src/memo.py`)**: 2-page institutional IC investment memo PDF with selectable text (`memo/ic_memo.pdf`).
 - [x] **P12 Streamlit Dashboard (`app/dashboard.py`)**: Interactive dashboard with scenario sliders, valuation, forensics, sizing, and warroom tabs.
 - [x] **P13 Final QA & Packaging**: Clean reproduction pipeline validated, test suite `tests/test_pipeline.py` created, `AI_DECLARATION.md` and `README.md` documented.
+- [x] **P14 Web UI Transformation & Motion Design (`app/`)**: Institutional-grade redesign of equity research client (`index.html`, `style.css`, `script.js`). Features Midnight Navy + Emerald palette, cursor-following ambient spotlight with rAF throttling, interactive card edge-lighting, tabular figures, count-up metric reveals, mobile drawer, and WCAG AA accessibility. Built and validated over local HTTP server.
 
 ---
 
