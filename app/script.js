@@ -219,14 +219,14 @@ document.addEventListener('DOMContentLoaded', () => {
     CAMS: {
       title: "CAMS Limited — Investment Thesis & Audit Proof Points",
       body: `
-        <div class="modal-detail-section" style="background: rgba(11, 18, 32, 0.5); padding: 16px; border-radius: 10px; border: 1px solid var(--border-accent);">
-          <h4 style="color: var(--accent-bright); margin-bottom: 8px; font-weight: 700; font-size: 1rem;">Consensus Divergence & Moat</h4>
+        <div class="modal-detail-section" style="background: rgba(18, 21, 30, 0.7); padding: 16px; border-radius: 10px; border: 1px solid var(--border-accent);">
+          <h4 style="color: var(--accent-red-bright); margin-bottom: 8px; font-weight: 700; font-size: 1rem;">Consensus Divergence & Moat</h4>
           <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
             CAMS commands a 68% AUM market share across Indian Mutual Funds with ~100% renewal rate and zero client defection in 15+ years. 
             At 29.6x trailing P/E and a 3.07% FCF yield, it requires only 34.9% 5Y FCFF CAGR to justify current price—the lowest hurdle in the coverage universe.
           </p>
         </div>
-        <div class="modal-detail-section" style="background: rgba(11, 18, 32, 0.5); padding: 16px; border-radius: 10px; border: 1px solid var(--border-subtle); margin-top: 14px;">
+        <div class="modal-detail-section" style="background: rgba(18, 21, 30, 0.7); padding: 16px; border-radius: 10px; border: 1px solid var(--border-subtle); margin-top: 14px;">
           <h4 style="color: var(--text-primary); margin-bottom: 8px; font-weight: 700; font-size: 1rem;">Audit & Governance Assurance</h4>
           <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
             Audited by S.R. Batliboi (EY). Beneish M-Score of -1.92 completely passes financial manipulation screens. Zero leverage and FCF/PAT conversion exceeding 91.0%.
@@ -237,13 +237,13 @@ document.addEventListener('DOMContentLoaded', () => {
     CDSL: {
       title: "CDSL — Central Depository Services Audit Ledger",
       body: `
-        <div class="modal-detail-section" style="background: rgba(11, 18, 32, 0.5); padding: 16px; border-radius: 10px; border: 1px solid var(--border-accent);">
-          <h4 style="color: var(--accent-bright); margin-bottom: 8px; font-weight: 700; font-size: 1rem;">Beneficiary of Demat Account Penetration</h4>
+        <div class="modal-detail-section" style="background: rgba(18, 21, 30, 0.7); padding: 16px; border-radius: 10px; border: 1px solid var(--border-accent);">
+          <h4 style="color: var(--accent-red-bright); margin-bottom: 8px; font-weight: 700; font-size: 1rem;">Beneficiary of Demat Account Penetration</h4>
           <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
             CDSL holds 66% market share in demat accounts. Annual issuer fees generate recurring non-market revenues, while capex intensity remains minimal at 2.5%.
           </p>
         </div>
-        <div class="modal-detail-section" style="background: rgba(11, 18, 32, 0.5); padding: 16px; border-radius: 10px; border: 1px solid var(--border-subtle); margin-top: 14px;">
+        <div class="modal-detail-section" style="background: rgba(18, 21, 30, 0.7); padding: 16px; border-radius: 10px; border: 1px solid var(--border-subtle); margin-top: 14px;">
           <h4 style="color: var(--text-primary); margin-bottom: 8px; font-weight: 700; font-size: 1rem;">Key Forensic Monitorables</h4>
           <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
             Transaction fees remain cyclical with market turnover. M-Score is -1.77 (Investigate flag due to DSRI asset-growth surge), but audit is clean by Walker Chandiok.
@@ -254,13 +254,13 @@ document.addEventListener('DOMContentLoaded', () => {
     BSE: {
       title: "BSE Limited — Platform Moat vs Regulatory Risk",
       body: `
-        <div class="modal-detail-section" style="background: rgba(11, 18, 32, 0.5); padding: 16px; border-radius: 10px; border: 1px solid var(--border-accent);">
+        <div class="modal-detail-section" style="background: rgba(18, 21, 30, 0.7); padding: 16px; border-radius: 10px; border: 1px solid var(--border-accent);">
           <h4 style="color: var(--warning); margin-bottom: 8px; font-weight: 700; font-size: 1rem;">Derivatives Hyper-Growth & Exposure</h4>
           <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
             Derivatives revenue has grown 15x over 4 years to 73.8% of total revenue. Trailing P/E of 55.1x requires an 81.1% reverse-DCF implied CAGR to justify price.
           </p>
         </div>
-        <div class="modal-detail-section" style="background: rgba(11, 18, 32, 0.5); padding: 16px; border-radius: 10px; border: 1px solid var(--border-subtle); margin-top: 14px;">
+        <div class="modal-detail-section" style="background: rgba(18, 21, 30, 0.7); padding: 16px; border-radius: 10px; border: 1px solid var(--border-subtle); margin-top: 14px;">
           <h4 style="color: var(--text-primary); margin-bottom: 8px; font-weight: 700; font-size: 1rem;">Governance & Sizing Justification</h4>
           <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
             Deloitte audited. Capped at ₹66.5 Cr (13.3%) allocation with clear exit tripwires (TW1-TW3) safeguarding capital against severe SEBI volume curbs.
@@ -271,13 +271,13 @@ document.addEventListener('DOMContentLoaded', () => {
     KFIN: {
       title: "KFin Technologies — SaaS Platform & Global RTA",
       body: `
-        <div class="modal-detail-section" style="background: rgba(11, 18, 32, 0.5); padding: 16px; border-radius: 10px; border: 1px solid var(--border-accent);">
-          <h4 style="color: var(--accent-bright); margin-bottom: 8px; font-weight: 700; font-size: 1rem;">International Diversification</h4>
+        <div class="modal-detail-section" style="background: rgba(18, 21, 30, 0.7); padding: 16px; border-radius: 10px; border: 1px solid var(--border-accent);">
+          <h4 style="color: var(--accent-red-bright); margin-bottom: 8px; font-weight: 700; font-size: 1rem;">International Diversification</h4>
           <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
             Commands 32% domestic MF AUM plus major market shares in issuer solutions, pension, and international Southeast Asian RTA services.
           </p>
         </div>
-        <div class="modal-detail-section" style="background: rgba(11, 18, 32, 0.5); padding: 16px; border-radius: 10px; border: 1px solid var(--border-subtle); margin-top: 14px;">
+        <div class="modal-detail-section" style="background: rgba(18, 21, 30, 0.7); padding: 16px; border-radius: 10px; border: 1px solid var(--border-subtle); margin-top: 14px;">
           <h4 style="color: var(--text-primary); margin-bottom: 8px; font-weight: 700; font-size: 1rem;">Forensic Highlights</h4>
           <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
             Composite score 100/100, Beneish M-Score of -2.02 (PASS), CFO/EBITDA 85.7%, FCF/PAT 113.6%. Audited by MSKA (BDO).
