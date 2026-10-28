@@ -294,15 +294,43 @@ body {
   font-weight: 600;
 }
 
-/* Nav Links Navigation */
+/* Nav Links Navigation — Horizontally scrollable with visible themed scrollbar */
 .nav-links {
   display: flex;
   align-items: center;
   gap: 3px;
   background-color: rgba(13, 16, 23, 0.75);
-  padding: 3px 6px;
-  border-radius: var(--radius-full);
+  padding: 4px 6px;
+  border-radius: var(--radius-md);
   border: 1px solid rgba(40, 45, 57, 0.6);
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  max-width: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-red) rgba(10, 11, 16, 0.9);
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Visible Themed Horizontal Scrollbar for Nav Menu */
+.nav-links::-webkit-scrollbar {
+  height: 5px;
+}
+
+.nav-links::-webkit-scrollbar-track {
+  background: rgba(10, 11, 16, 0.95);
+  border-radius: var(--radius-full);
+}
+
+.nav-links::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--accent-red) 0%, var(--accent-red-bright) 100%);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 6px rgba(229, 9, 47, 0.45);
+}
+
+.nav-links::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-red-bright);
+  box-shadow: 0 0 10px rgba(255, 23, 68, 0.7);
 }
 
 .nav-link {

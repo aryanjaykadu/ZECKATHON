@@ -80,6 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileToggle.innerHTML = '☰ Menu';
       });
     });
+
+    // Enable horizontal scroll on mouse wheel over nav-links (if scrollable)
+    navLinksContainer.addEventListener('wheel', (e) => {
+      if (navLinksContainer.scrollWidth > navLinksContainer.clientWidth) {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+          e.preventDefault();
+          navLinksContainer.scrollLeft += e.deltaY;
+        }
+      }
+    }, { passive: false });
   }
 
   // -------------------------------------------------------------
