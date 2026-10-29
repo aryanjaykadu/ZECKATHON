@@ -6,6 +6,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
   const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Soft, spring-like reveal as each major panel enters view.
+  if (!prefersReducedMotion() && 'IntersectionObserver' in window) {
+    const revealTargets = document.querySelectorAll(
+      '.hero-meta-bar, .hero-title, .hero-subtitle, .hero-conviction-card, .section-block'
+    );
+    if (revealTargets.length) {
+      document.body.classList.add('motion-ready');
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+      revealTargets.forEach((target) => revealObserver.observe(target));
+    }
+  }
+
   if (!isTouchDevice() && !prefersReducedMotion()) {
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight * 0.3;

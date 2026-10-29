@@ -1724,3 +1724,169 @@ body {
     display: none !important;
   }
 }
+
+/* -------------------------------------------------------------
+   GOLDEN HOUR FINISH — GLASS SURFACES & FLUID INTERACTION
+------------------------------------------------------------- */
+:root {
+  --accent-red: #C49A50;
+  --accent-red-bright: #F0D28D;
+  --accent-red-deep: #8D6A32;
+  --accent-red-glow: rgba(196, 154, 80, 0.16);
+  --accent-red-glow-strong: rgba(240, 210, 141, 0.28);
+  --border-accent: rgba(196, 154, 80, 0.38);
+  --border-accent-bright: rgba(240, 210, 141, 0.68);
+  --ease-fluid: cubic-bezier(0.22, 1, 0.36, 1);
+  --glass-fill: rgba(19, 22, 31, 0.64);
+  --glass-stroke: rgba(255, 255, 255, 0.09);
+}
+
+.bg-ambient-layer {
+  background:
+    radial-gradient(ellipse 76% 45% at 50% -12%, rgba(196, 154, 80, 0.12) 0%, transparent 68%),
+    radial-gradient(circle 700px at 88% 78%, rgba(196, 154, 80, 0.055) 0%, transparent 62%),
+    #08090D;
+}
+
+.cursor-ambient-spotlight {
+  background: radial-gradient(
+    560px circle at var(--mouse-x, 50vw) var(--mouse-y, 25vh),
+    rgba(240, 210, 141, 0.09), rgba(196, 154, 80, 0.025) 46%, transparent 80%
+  );
+}
+
+.nav-wrapper {
+  background: rgba(10, 11, 16, 0.72);
+  border-bottom-color: rgba(240, 210, 141, 0.13);
+  backdrop-filter: blur(24px) saturate(145%);
+  -webkit-backdrop-filter: blur(24px) saturate(145%);
+}
+
+.hero-conviction-card,
+.company-card,
+.forensic-card,
+.interactive-panel,
+.warroom-card,
+.tripwire-card,
+.calc-output-box,
+.modal-dialog {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)), var(--glass-fill);
+  border-color: var(--glass-stroke);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  transition:
+    transform 560ms var(--ease-fluid),
+    border-color 420ms var(--ease-fluid),
+    box-shadow 560ms var(--ease-fluid),
+    background-color 420ms var(--ease-fluid);
+}
+
+.hero-conviction-card {
+  border-color: rgba(240, 210, 141, 0.3);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.32), 0 0 54px rgba(196, 154, 80, 0.075), inset 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.company-card:hover,
+.warroom-card:hover,
+.interactive-panel:hover {
+  transform: translateY(-5px) scale(1.008);
+  border-color: rgba(240, 210, 141, 0.35);
+  box-shadow: 0 26px 58px rgba(0, 0, 0, 0.34), 0 0 28px rgba(196, 154, 80, 0.065), inset 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.hero-conviction-card:hover {
+  transform: translateY(-3px);
+}
+
+.section-header::after {
+  background: linear-gradient(90deg, var(--accent-red), rgba(240, 210, 141, 0.12), transparent);
+}
+
+.btn,
+.nav-link,
+.warroom-filter-btn,
+.modal-close-btn {
+  transition-timing-function: var(--ease-fluid);
+}
+
+.btn-primary {
+  color: #17130B;
+  background: linear-gradient(135deg, #F0D28D, #C49A50 58%, #A57C3A);
+  border-color: rgba(240, 210, 141, 0.55);
+  box-shadow: 0 6px 24px rgba(196, 154, 80, 0.18), inset 0 1px rgba(255, 255, 255, 0.38);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 10px 30px rgba(196, 154, 80, 0.28), inset 0 1px rgba(255, 255, 255, 0.45);
+}
+
+.btn-secondary:hover,
+.nav-link:hover,
+.nav-link.active,
+.warroom-filter-btn.active {
+  border-color: rgba(240, 210, 141, 0.38);
+  color: var(--accent-red-bright);
+}
+
+.badge-tag,
+.brand-badge,
+.card-badge.winner,
+.verdict-tag {
+  border-color: rgba(240, 210, 141, 0.3);
+  background-color: rgba(196, 154, 80, 0.1);
+}
+
+.brand-badge::before,
+.badge-indicator {
+  background-color: var(--accent-red-bright);
+  box-shadow: 0 0 10px rgba(240, 210, 141, 0.65);
+}
+
+.verdict-stat-pill {
+  border-color: rgba(240, 210, 141, 0.24);
+  background: linear-gradient(145deg, rgba(240, 210, 141, 0.12), rgba(196, 154, 80, 0.035));
+}
+
+.motion-ready .section-block,
+.motion-ready .hero-meta-bar,
+.motion-ready .hero-title,
+.motion-ready .hero-subtitle,
+.motion-ready .hero-conviction-card {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 760ms var(--ease-fluid), transform 820ms var(--ease-fluid);
+}
+
+.motion-ready .section-block.is-visible,
+.motion-ready .hero-meta-bar.is-visible,
+.motion-ready .hero-title.is-visible,
+.motion-ready .hero-subtitle.is-visible,
+.motion-ready .hero-conviction-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@supports not ((backdrop-filter: blur(1px))) {
+  .hero-conviction-card,
+  .company-card,
+  .forensic-card,
+  .interactive-panel,
+  .warroom-card,
+  .tripwire-card,
+  .calc-output-box,
+  .modal-dialog {
+    background: rgba(18, 21, 30, 0.96);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .section-block,
+  .motion-ready .hero-meta-bar,
+  .motion-ready .hero-title,
+  .motion-ready .hero-subtitle,
+  .motion-ready .hero-conviction-card {
+    opacity: 1;
+    transform: none;
+  }
+}

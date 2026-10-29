@@ -39,6 +39,9 @@ class NumberedCanvas(canvas.Canvas):
     """Two-pass canvas for dynamic total page count."""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.setTitle("Zeckathon 2026 | Capital Allocation & Equity Research")
+        self.setAuthor("Zetheta × IIT Patna TIC")
+        self.setSubject("Institutional research report | ₹500 Crore long-only mandate | Cutoff 2026-10-26")
         self._saved_page_states = []
 
     def showPage(self):
@@ -51,6 +54,9 @@ class NumberedCanvas(canvas.Canvas):
             self.__dict__.update(state)
             self.draw_page_number(num_pages)
             canvas.Canvas.showPage(self)
+        self._doc.info.title = "Zeckathon 2026 | Capital Allocation & Equity Research"
+        self._doc.info.author = "Zetheta × IIT Patna TIC"
+        self._doc.info.subject = "Institutional research report | ₹500 Crore long-only mandate | Cutoff 2026-10-26"
         canvas.Canvas.save(self)
 
     def draw_page_number(self, page_count):
@@ -58,13 +64,15 @@ class NumberedCanvas(canvas.Canvas):
             return  # Suppress on cover page
         self.saveState()
         self.setFont("Helvetica", 8)
-        self.setFillColor(HexColor("#666666"))
+        self.setFillColor(HexColor("#687384"))
         
         # Header rule & title
-        self.setStrokeColor(HexColor("#dcdde1"))
+        self.setStrokeColor(HexColor("#e5dfd1"))
         self.setLineWidth(0.5)
         self.line(18 * mm, 282 * mm, 192 * mm, 282 * mm)
-        self.drawString(18 * mm, 284 * mm, "ZETHA × IIT PATNA TIC | CAPITAL MARKET INFRASTRUCTURE RESEARCH")
+        self.setFillColor(HexColor("#92703a"))
+        self.drawString(18 * mm, 284 * mm, "ZETHETA × IIT PATNA TIC | CAPITAL MARKET INFRASTRUCTURE RESEARCH")
+        self.setFillColor(HexColor("#687384"))
         self.drawRightString(192 * mm, 284 * mm, f"MANDATE: ₹500 CR | CUTOFF: {CUTOFF_DATE}")
         
         # Footer rule & pagination
@@ -120,12 +128,12 @@ def build_pdf():
     styles = getSampleStyleSheet()
     
     # Custom palette
-    c_primary = HexColor("#0f172a")    # Deep Navy
-    c_secondary = HexColor("#2563eb")  # Rich Blue
-    c_accent = HexColor("#0d9488")     # Teal
+    c_primary = HexColor("#142235")    # Ink navy
+    c_secondary = HexColor("#92703a")  # Muted gold
+    c_accent = HexColor("#b58a43")     # Warm gold
     c_dark = HexColor("#1e293b")
-    c_light = HexColor("#f8fafc")
-    c_border = HexColor("#e2e8f0")
+    c_light = HexColor("#f7f6f2")
+    c_border = HexColor("#e6e1d6")
     c_red = HexColor("#dc2626")
     c_green = HexColor("#16a34a")
     
@@ -138,7 +146,7 @@ def build_pdf():
     cover_sub = ParagraphStyle(
         'CoverSub', parent=styles['Normal'],
         fontName='Helvetica', fontSize=12, leading=16,
-        textColor=HexColor("#475569"), alignment=TA_LEFT, spaceAfter=12 * mm
+        textColor=HexColor("#536071"), alignment=TA_LEFT, spaceAfter=12 * mm
     )
     h1_style = ParagraphStyle(
         'SecH1', parent=styles['Normal'],
@@ -179,6 +187,16 @@ def build_pdf():
         'TableCellRight', parent=table_cell,
         alignment=TA_RIGHT
     )
+    meta_label = ParagraphStyle(
+        'MetaLabel', parent=styles['Normal'],
+        fontName='Helvetica-Bold', fontSize=7.5, leading=10,
+        textColor=HexColor("#64748b")
+    )
+    meta_val = ParagraphStyle(
+        'MetaVal', parent=styles['Normal'],
+        fontName='Helvetica-Bold', fontSize=8.5, leading=11,
+        textColor=c_primary
+    )
     
     story = []
     
@@ -191,30 +209,33 @@ def build_pdf():
     story.append(Paragraph("Comprehensive Comparative Analysis of BSE Limited, CDSL, CAMS, and KFin Technologies | Mandate Horizon: 12 Months | Cutoff Date: 2026-10-26", cover_sub))
     story.append(HRFlowable(width="100%", thickness=2, color=c_secondary, spaceAfter=6 * mm))
     
-    # Metadata Bento Grid
+    # Metadata Editorial Summary Block (Clean, unboxed institutional styling)
     meta_data = [
         [
-            Paragraph("<b>Target Mandate:</b> ₹500.00 Crore (Long-Only)", table_cell),
-            Paragraph("<b>Regulatory Cutoff:</b> 2026-10-26 (Strict)", table_cell),
-            Paragraph("<b>Audit Status:</b> 100% Provenance Ledger Verified", table_cell),
+            Paragraph("<b>Target Mandate:</b><br/>₹500.00 Crore (Long-Only)", table_cell),
+            Paragraph("<b>Regulatory Cutoff:</b><br/>2026-10-26 (Strict)", table_cell),
+            Paragraph("<b>Audit Status:</b><br/>100% Provenance Ledger Verified", table_cell),
         ],
         [
-            Paragraph("<b>Primary Recommendation:</b> CAMS Limited (CAMS.NS)", table_cell_bold),
-            Paragraph(f"<b>Monte Carlo Win Share:</b> {win_shares.get('CAMS', 96.4)}%", table_cell),
-            Paragraph("<b>Deployment Strategy:</b> Sized Across 4 Infrastructure Leaders", table_cell),
+            Paragraph("<b>Primary Recommendation:</b><br/><b>CAMS Limited (CAMS.NS)</b>", table_cell),
+            Paragraph(f"<b>Monte Carlo Win Share:</b><br/>{win_shares.get('CAMS', 96.4)}%", table_cell),
+            Paragraph("<b>Deployment Strategy:</b><br/>Sized Across 4 Infrastructure Leaders", table_cell),
         ]
     ]
     t_meta = Table(meta_data, colWidths=[58 * mm, 58 * mm, 58 * mm])
     t_meta.setStyle(TableStyle([
-        ('BACKGROUND', (0, 0), (-1, -1), HexColor("#f1f5f9")),
-        ('GRID', (0, 0), (-1, -1), 0.5, HexColor("#cbd5e1")),
-        ('TOPPADDING', (0, 0), (-1, -1), 6),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
-        ('LEFTPADDING', (0, 0), (-1, -1), 8),
-        ('RIGHTPADDING', (0, 0), (-1, -1), 8),
+        ('LINEABOVE', (0, 0), (-1, 0), 1.0, c_primary),
+        ('LINEBELOW', (0, -1), (-1, -1), 1.0, c_primary),
+        ('LINEBELOW', (0, 0), (-1, 0), 0.5, c_border),
+        ('BACKGROUND', (0, 0), (-1, -1), HexColor("#faf9f6")),
+        ('TOPPADDING', (0, 0), (-1, -1), 5),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 5),
+        ('LEFTPADDING', (0, 0), (-1, -1), 2),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 4),
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
     ]))
     story.append(t_meta)
-    story.append(Spacer(1, 6 * mm))
+    story.append(Spacer(1, 5 * mm))
     
     # ========================================================
     # SECTION 1: EXECUTIVE SUMMARY & INVESTMENT DECISION
@@ -280,11 +301,16 @@ def build_pdf():
     t_ind.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), c_primary),
         ('TEXTCOLOR', (0, 0), (-1, 0), white),
-        ('GRID', (0, 0), (-1, -1), 0.5, c_border),
+        ('LINEABOVE', (0, 0), (-1, 0), 1.0, c_primary),
+        ('LINEBELOW', (0, 0), (-1, 0), 0.75, c_primary),
+        ('LINEBELOW', (0, 1), (-1, -2), 0.4, HexColor("#e2e8f0")),
+        ('LINEBELOW', (0, -1), (-1, -1), 1.0, c_primary),
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, c_light]),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, HexColor("#f7f6f2")]),
         ('TOPPADDING', (0, 0), (-1, -1), 4),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
+        ('LEFTPADDING', (0, 0), (-1, -1), 4),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 4),
     ]))
     story.append(t_ind)
     story.append(Spacer(1, 4 * mm))
@@ -337,11 +363,16 @@ def build_pdf():
     t_val.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), c_primary),
         ('TEXTCOLOR', (0, 0), (-1, 0), white),
-        ('GRID', (0, 0), (-1, -1), 0.5, c_border),
+        ('LINEABOVE', (0, 0), (-1, 0), 1.0, c_primary),
+        ('LINEBELOW', (0, 0), (-1, 0), 0.75, c_primary),
+        ('LINEBELOW', (0, 1), (-1, -2), 0.4, HexColor("#e2e8f0")),
+        ('LINEBELOW', (0, -1), (-1, -1), 1.0, c_primary),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, c_light]),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, HexColor("#f7f6f2")]),
         ('TOPPADDING', (0, 0), (-1, -1), 4),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
+        ('LEFTPADDING', (0, 0), (-1, -1), 3),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 3),
     ]))
     story.append(t_val)
     story.append(Spacer(1, 4 * mm))
@@ -393,11 +424,16 @@ def build_pdf():
     t_dcf.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), HexColor("#1e293b")),
         ('TEXTCOLOR', (0, 0), (-1, 0), white),
-        ('GRID', (0, 0), (-1, -1), 0.5, c_border),
+        ('LINEABOVE', (0, 0), (-1, 0), 1.0, HexColor("#1e293b")),
+        ('LINEBELOW', (0, 0), (-1, 0), 0.75, HexColor("#1e293b")),
+        ('LINEBELOW', (0, 1), (-1, -2), 0.4, HexColor("#e2e8f0")),
+        ('LINEBELOW', (0, -1), (-1, -1), 1.0, HexColor("#1e293b")),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, c_light]),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, HexColor("#f7f6f2")]),
         ('TOPPADDING', (0, 0), (-1, -1), 3),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+        ('LEFTPADDING', (0, 0), (-1, -1), 2),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 2),
     ]))
     story.append(t_dcf)
     story.append(Spacer(1, 4 * mm))
@@ -417,7 +453,6 @@ def build_pdf():
     # ========================================================
     # SECTION 5: SELECTED COMPANY THREE-STATEMENT MODEL (CAMS)
     # ========================================================
-    story.append(PageBreak())
     story.append(Paragraph("5. Integrated Financial Model: CAMS (Selected Primary Recommendation)", h1_style))
     story.append(Paragraph(
         "As the primary conviction recommendation, CAMS's financials are modeled across an integrated 5-year forecast horizon "
@@ -450,11 +485,16 @@ def build_pdf():
     t_cams.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), c_accent),
         ('TEXTCOLOR', (0, 0), (-1, 0), white),
-        ('GRID', (0, 0), (-1, -1), 0.5, c_border),
+        ('LINEABOVE', (0, 0), (-1, 0), 1.0, c_accent),
+        ('LINEBELOW', (0, 0), (-1, 0), 0.75, c_accent),
+        ('LINEBELOW', (0, 1), (-1, -2), 0.35, HexColor("#e2e8f0")),
+        ('LINEBELOW', (0, -1), (-1, -1), 1.0, c_accent),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, c_light]),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, HexColor("#f7f6f2")]),
         ('TOPPADDING', (0, 0), (-1, -1), 2.5),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 2.5),
+        ('LEFTPADDING', (0, 0), (-1, -1), 2),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 2),
     ]))
     story.append(t_cams)
     story.append(Spacer(1, 4 * mm))
@@ -510,11 +550,16 @@ def build_pdf():
     t_stress.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), HexColor("#b91c1c")),
         ('TEXTCOLOR', (0, 0), (-1, 0), white),
-        ('GRID', (0, 0), (-1, -1), 0.5, c_border),
+        ('LINEABOVE', (0, 0), (-1, 0), 1.0, HexColor("#b91c1c")),
+        ('LINEBELOW', (0, 0), (-1, 0), 0.75, HexColor("#b91c1c")),
+        ('LINEBELOW', (0, 1), (-1, -2), 0.4, HexColor("#fecaca")),
+        ('LINEBELOW', (0, -1), (-1, -1), 1.0, HexColor("#b91c1c")),
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, HexColor("#fef2f2")]),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, HexColor("#f7f6f2")]),
         ('TOPPADDING', (0, 0), (-1, -1), 3),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+        ('LEFTPADDING', (0, 0), (-1, -1), 3),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 3),
     ]))
     story.append(t_stress)
     story.append(Spacer(1, 4 * mm))
@@ -554,11 +599,16 @@ def build_pdf():
     t_mc.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), c_primary),
         ('TEXTCOLOR', (0, 0), (-1, 0), white),
-        ('GRID', (0, 0), (-1, -1), 0.5, c_border),
+        ('LINEABOVE', (0, 0), (-1, 0), 1.0, c_primary),
+        ('LINEBELOW', (0, 0), (-1, 0), 0.75, c_primary),
+        ('LINEBELOW', (0, 1), (-1, -2), 0.4, HexColor("#e2e8f0")),
+        ('LINEBELOW', (0, -1), (-1, -1), 1.0, c_primary),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, c_light]),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, HexColor("#f7f6f2")]),
         ('TOPPADDING', (0, 0), (-1, -1), 3),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+        ('LEFTPADDING', (0, 0), (-1, -1), 2),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 2),
     ]))
     story.append(t_mc)
     story.append(Spacer(1, 4 * mm))
@@ -595,11 +645,16 @@ def build_pdf():
     t_for.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), HexColor("#0d7377")),
         ('TEXTCOLOR', (0, 0), (-1, 0), white),
-        ('GRID', (0, 0), (-1, -1), 0.5, c_border),
+        ('LINEABOVE', (0, 0), (-1, 0), 1.0, HexColor("#0d7377")),
+        ('LINEBELOW', (0, 0), (-1, 0), 0.75, HexColor("#0d7377")),
+        ('LINEBELOW', (0, 1), (-1, -2), 0.4, HexColor("#e2e8f0")),
+        ('LINEBELOW', (0, -1), (-1, -1), 1.0, HexColor("#0d7377")),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, c_light]),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, HexColor("#f7f6f2")]),
         ('TOPPADDING', (0, 0), (-1, -1), 3),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+        ('LEFTPADDING', (0, 0), (-1, -1), 2),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 2),
     ]))
     story.append(t_for)
     story.append(Spacer(1, 4 * mm))
@@ -673,13 +728,18 @@ def build_pdf():
     t_alloc.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), c_secondary),
         ('TEXTCOLOR', (0, 0), (-1, 0), white),
-        ('GRID', (0, 0), (-1, -1), 0.5, c_border),
+        ('LINEABOVE', (0, 0), (-1, 0), 1.0, c_secondary),
+        ('LINEBELOW', (0, 0), (-1, 0), 0.75, c_secondary),
+        ('LINEBELOW', (0, 1), (-1, -3), 0.4, HexColor("#e2e8f0")),
+        ('LINEBELOW', (0, -1), (-1, -1), 1.0, c_secondary),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-        ('ROWBACKGROUNDS', (0, 1), (-1, -3), [white, c_light]),
-        ('BACKGROUND', (0, -2), (-1, -2), HexColor("#f8fafc")),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -3), [white, HexColor("#f7f6f2")]),
+        ('BACKGROUND', (0, -2), (-1, -2), HexColor("#f1f5f9")),
         ('BACKGROUND', (0, -1), (-1, -1), HexColor("#e2e8f0")),
         ('TOPPADDING', (0, 0), (-1, -1), 3),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+        ('LEFTPADDING', (0, 0), (-1, -1), 2),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 2),
     ]))
     story.append(t_alloc)
     story.append(Spacer(1, 4 * mm))
@@ -709,13 +769,18 @@ def build_pdf():
         ])
     t_tw = Table(tw_rows, colWidths=[18 * mm, 14 * mm, 54 * mm, 36 * mm, 34 * mm, 22 * mm])
     t_tw.setStyle(TableStyle([
-        ('BACKGROUND', (0, 0), (-1, 0), HexColor("#c0392b")),
+        ('BACKGROUND', (0, 0), (-1, 0), c_primary),
         ('TEXTCOLOR', (0, 0), (-1, 0), white),
-        ('GRID', (0, 0), (-1, -1), 0.5, c_border),
+        ('LINEABOVE', (0, 0), (-1, 0), 1.0, c_secondary),
+        ('LINEBELOW', (0, 0), (-1, 0), 0.75, c_secondary),
+        ('LINEBELOW', (0, 1), (-1, -2), 0.4, c_border),
+        ('LINEBELOW', (0, -1), (-1, -1), 1.0, c_secondary),
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, HexColor("#fff5f5")]),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, HexColor("#f7f6f2")]),
         ('TOPPADDING', (0, 0), (-1, -1), 3),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+        ('LEFTPADDING', (0, 0), (-1, -1), 2),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 2),
     ]))
     story.append(t_tw)
     story.append(Spacer(1, 4 * mm))
@@ -723,7 +788,6 @@ def build_pdf():
     # ========================================================
     # SECTION 11: DATA PROVENANCE, LIMITATIONS & DECLARATION
     # ========================================================
-    story.append(PageBreak())
     story.append(Paragraph("11. Data Provenance, Known Limitations & AI Declaration", h1_style))
     story.append(Paragraph("<b>Regulatory Cutoff Compliance:</b> All market prices, shareholding patterns, and macroeconomic indices reflect data strictly on or prior to <b>2026-10-26</b>. Zero future data is interpolated or admitted into any loader.", body_style))
     story.append(Paragraph("<b>Primary Data Sources:</b>", body_style))
@@ -746,7 +810,7 @@ def build_pdf():
     ))
     story.append(Spacer(1, 6 * mm))
     
-    # Sign-off box
+    # Sign-off block (Clean editorial signature line without enclosing box)
     sign_data = [
         [
             Paragraph("<b>Prepared by:</b><br/>Lead Quantitative Equity Analyst<br/>Zetheta × IIT Patna TIC Mandate", table_cell),
@@ -756,10 +820,12 @@ def build_pdf():
     ]
     t_sign = Table(sign_data, colWidths=[58 * mm, 58 * mm, 58 * mm])
     t_sign.setStyle(TableStyle([
-        ('BACKGROUND', (0, 0), (-1, -1), HexColor("#f8fafc")),
-        ('GRID', (0, 0), (-1, -1), 0.5, HexColor("#cbd5e1")),
-        ('TOPPADDING', (0, 0), (-1, -1), 8),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
+        ('LINEABOVE', (0, 0), (-1, 0), 1.0, c_primary),
+        ('LINEBELOW', (0, -1), (-1, -1), 0.5, c_border),
+        ('TOPPADDING', (0, 0), (-1, -1), 6),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+        ('LEFTPADDING', (0, 0), (-1, -1), 2),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 2),
     ]))
     story.append(t_sign)
     
